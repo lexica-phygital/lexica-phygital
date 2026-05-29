@@ -622,7 +622,7 @@ function enviarForm(){
   var msg=document.getElementById('f-msg').value.trim();
   var pres=document.querySelector('.pradio:checked');
   if(!nom||!neg||!tel||!tipo){ alert('Por favor completa: Nombre, Negocio, WhatsApp y Tipo de negocio.'); return; }
-  var waNum='50212345678'; // ← CAMBIA POR TU NÚMERO REAL
+  var waNum='50236075756'; // ← CAMBIA POR TU NÚMERO REAL
   var txt='🚀 *SOLICITUD DE AUDITORÍA LÉXICA PHYGITAL*\n\n👤 *Nombre:* '+nom+'\n🏢 *Negocio:* '+neg+'\n📱 *Tel:* '+tel+'\n📋 *Sector:* '+tipo+(msg?'\n💬 *Mensaje:* '+msg:'')+(pres?'\n💰 *Tech actual:* '+pres.value:'');
   document.getElementById('fcontainer').style.display='none';
   document.getElementById('fsuccess').style.display='block';

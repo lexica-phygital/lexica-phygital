@@ -13,18 +13,18 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:#05070D;color:#F3F4F6;font-family:'Montserrat',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-
+ 
 /* Scanlines */
 body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,242,254,0.012) 2px,rgba(0,242,254,0.012) 4px);pointer-events:none;z-index:1;}
-
+ 
 /* Gradients */
 .gc{background:linear-gradient(135deg,#00F2FE,#4FACFE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .gg{background:linear-gradient(135deg,#FFDF00,#D4AF37,#AA7C11);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .gp{background:linear-gradient(135deg,#fff,#9CA3AF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-
+ 
 /* Glass */
 .glass{background:rgba(11,15,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.07);}
-
+ 
 /* Buttons */
 .btn-cyan{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:15px 36px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(135deg,#00F2FE,#4FACFE);color:#050810;text-decoration:none;overflow:hidden;transition:all .3s;}
 .btn-cyan:hover{box-shadow:0 0 30px rgba(0,242,254,.5);transform:translateY(-1px);}
@@ -32,7 +32,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .btn-outline:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04);}
 .btn-gold{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:15px 36px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(135deg,#FFDF00,#D4AF37);color:#0B0F1A;border:none;cursor:pointer;transition:all .3s;}
 .btn-gold:hover{box-shadow:0 0 30px rgba(212,175,55,.5);transform:translateY(-1px);}
-
+ 
 /* Service cards */
 .svc-card{padding:40px 36px;border-radius:20px;border:1px solid rgba(255,255,255,.05);background:rgba(11,15,26,.5);backdrop-filter:blur(16px);transition:all .4s;transform-style:preserve-3d;position:relative;overflow:hidden;}
 .svc-card::before{content:'';position:absolute;inset:0;border-radius:20px;opacity:0;transition:opacity .4s;}
@@ -42,42 +42,42 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .svc-card:hover{transform:translateY(-6px);}
 .svc-card.cc:hover{border-color:rgba(0,242,254,.2);}
 .svc-card.cg:hover{border-color:rgba(212,175,55,.2);}
-
+ 
 /* Labels */
 .slabel{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;}
 .slabel::before{content:'//';font-family:'JetBrains Mono',monospace;}
-
+ 
 /* Tag pills */
 .tag-c{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,242,254,.08);color:#00F2FE;border:1px solid rgba(0,242,254,.15);padding:5px 12px;border-radius:50px;}
 .tag-g{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(212,175,55,.08);color:#D4AF37;border:1px solid rgba(212,175,55,.15);padding:5px 12px;border-radius:50px;}
-
+ 
 /* Ticker */
 .ticker-track{display:flex;gap:0;animation:ticker 35s linear infinite;width:max-content;}
 @keyframes ticker{to{transform:translateX(-50%);}}
-
+ 
 /* Fade up */
 .fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
 .fu.vis{opacity:1;transform:translateY(0);}
-
+ 
 /* Pulse */
 @keyframes pulseC{0%,100%{box-shadow:0 0 0 0 rgba(0,242,254,.4);}50%{box-shadow:0 0 0 10px rgba(0,242,254,0);}}
 .pdot{animation:pulseC 2s infinite;}
-
+ 
 /* Cursor blink */
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 .cur{display:inline-block;width:2px;height:16px;background:#00F2FE;animation:blink .6s infinite;vertical-align:middle;margin-left:2px;}
-
+ 
 /* Terminal */
 .terminal{background:#020408;border:1px solid rgba(0,242,254,.15);border-radius:16px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;}
 .t-bar{background:rgba(0,242,254,.05);padding:12px 20px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(0,242,254,.08);}
 .tdot{width:10px;height:10px;border-radius:50%;}
 .t-body{padding:24px;line-height:1.9;}
 .tc{color:#00F2FE;}.tg{color:#D4AF37;}.tw{color:#F3F4F6;}.tm{color:#6B7280;}.ts{color:#4ADE80;}
-
+ 
 /* Process line */
 .pline{position:relative;}
 .pline::before{content:'';position:absolute;left:23px;top:48px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(0,242,254,.3),transparent);}
-
+ 
 /* Form */
 .finput{width:100%;background:rgba(5,7,12,.8);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 18px;font-size:14px;color:#F3F4F6;font-family:'Montserrat',sans-serif;transition:all .3s;outline:none;}
 .finput::placeholder{color:rgba(255,255,255,.2);}
@@ -85,18 +85,18 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 select.finput{color:rgba(255,255,255,.5);cursor:pointer;}
 select.finput option{background:#0B0F1A;color:#F3F4F6;}
 .flabel{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;}
-
+ 
 /* Demo app styles */
 .app-header{background:rgba(0,242,254,.05);border-bottom:1px solid rgba(0,242,254,.1);padding:14px 22px;display:flex;align-items:center;gap:12px;}
 .app-dot{width:8px;height:8px;background:#00F2FE;border-radius:50%;box-shadow:0 0 8px #00F2FE;}
 .app-dot-g{width:8px;height:8px;background:#D4AF37;border-radius:50%;box-shadow:0 0 8px #D4AF37;}
 .app-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;}
-
+ 
 /* Demo tab */
 .dtab{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 20px;border-radius:50px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s;}
 .dtab.act{border-color:rgba(0,242,254,.5);background:rgba(0,242,254,.1);color:#00F2FE;}
 .dtab:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7);}
-
+ 
 /* Demo input */
 .dinput{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:9px 12px;font-size:12px;color:#fff;font-family:'Montserrat',sans-serif;outline:none;transition:border .2s;}
 .dinput:focus{border-color:rgba(0,242,254,.4);}
@@ -104,30 +104,30 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
 .dbtn-c{background:linear-gradient(135deg,#00F2FE,#4FACFE);color:#050810;border:none;border-radius:8px;padding:10px 18px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
 .dbtn-g{background:linear-gradient(135deg,#FFDF00,#D4AF37);color:#0B0F1A;border:none;border-radius:10px;padding:12px 22px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;}
 .dbtn-sm{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:6px;cursor:pointer;}
-
+ 
 /* Bahia card */
 .bahia{background:rgba(5,7,13,.7);border:1px solid rgba(0,242,254,.12);border-radius:14px;padding:18px;transition:all .3s;}
 .bahia.libre{border-color:rgba(212,175,55,.12);}
-
+ 
 /* Progress bar */
 .pbar-wrap{background:rgba(5,7,13,.8);border-radius:8px;height:6px;overflow:hidden;border:1px solid rgba(255,255,255,.05);}
 .pbar{height:100%;border-radius:8px;transition:width .6s ease;background:linear-gradient(90deg,#00F2FE,#4FACFE);}
 .pbar-g{background:linear-gradient(90deg,#D4AF37,#FFDF00);}
-
+ 
 /* Vehicle card */
 .vehicle{background:rgba(5,7,13,.7);border:1px solid rgba(212,175,55,.1);border-radius:14px;padding:18px;margin-bottom:10px;}
-
+ 
 /* Member row */
 .member{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:10px;margin-bottom:8px;flex-wrap:wrap;gap:8px;}
-
+ 
 /* Aforo bar */
 .abar-wrap{background:rgba(5,7,13,.8);border-radius:12px;height:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);}
 .abar{height:100%;border-radius:12px;transition:width .4s ease,background .4s;}
-
+ 
 /* WA log */
 .walog{background:rgba(5,7,13,.8);border:1px solid rgba(212,175,55,.1);border-radius:14px;padding:16px;max-height:110px;overflow-y:auto;margin:0 24px 24px;}
 .waline{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);}
-
+ 
 /* Grid helpers */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
@@ -140,29 +140,29 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
   .grid3{grid-template-columns:1fr 1fr;}
   .salon-form-row{grid-template-columns:1fr 1fr!important;}
 }
-
+ 
 /* Scrollbar */
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:#05070D;}
 ::-webkit-scrollbar-thumb{background:rgba(0,242,254,.3);border-radius:2px;}
-
+ 
 /* Cyber grid bg on section */
 .cgrid{background-image:linear-gradient(rgba(0,242,254,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,242,254,.03) 1px,transparent 1px);background-size:60px 60px;}
-
+ 
 section{position:relative;z-index:10;}
 header{position:relative;z-index:100;}
 footer{position:relative;z-index:10;}
 </style>
 </head>
 <body>
-
+ 
 <!-- 3D CANVAS -->
 <canvas id="cv3d" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.6;"></canvas>
-
+ 
 <!-- ══════════ NAVBAR ══════════ -->
 <header id="navbar" style="position:fixed;top:0;left:0;width:100%;z-index:100;transition:all .4s;">
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;">
-    <a href="#inicio" style="display:flex;align-items:center;height:44px;width:200px;flex-shrink:0;text-decoration:none;">
+    <a href="#inicio" style="display:flex;align-items:center;height:52px;width:240px;flex-shrink:0;text-decoration:none;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="100%" height="100%">
         <defs>
           <linearGradient id="cc" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE"/><stop offset="100%" stop-color="#4FACFE"/></linearGradient>
@@ -203,7 +203,7 @@ footer{position:relative;z-index:10;}
     <a href="#contacto"  onclick="closeMob()" style="display:block;margin-top:14px;text-align:center;padding:14px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00F2FE;border:1px solid rgba(0,242,254,.4);border-radius:50px;text-decoration:none;">Auditoría Gratis</a>
   </div>
 </header>
-
+ 
 <style>
 .navlink{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
 .navlink:hover{color:#00F2FE;}
@@ -211,35 +211,35 @@ footer{position:relative;z-index:10;}
 .navlink-btn:hover{background:rgba(0,242,254,.08);box-shadow:0 0 20px rgba(0,242,254,.2);}
 .mmlink{display:block;padding:12px 0;font-size:14px;font-weight:600;color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);}
 </style>
-
+ 
 <!-- ══════════ HERO ══════════ -->
 <section id="inicio" style="min-height:100vh;display:flex;align-items:center;padding:120px 24px 80px;">
   <div style="max-width:1280px;margin:0 auto;width:100%;">
     <div style="margin-bottom:32px;">
       <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);border-radius:50px;padding:8px 18px;">
         <span class="pdot" style="width:6px;height:6px;background:#D4AF37;border-radius:50%;flex-shrink:0;"></span>
-        <span style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;">Guatemala · Transformación PYME · Est. 2026</span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;">Guatemala · Para negocios que llevan todo en papel</span>
       </div>
     </div>
     <div class="grid2" id="hero-grid">
       <div>
         <h1 class="hero-h" style="font-size:56px;font-weight:900;line-height:1.06;letter-spacing:-.02em;margin-bottom:28px;">
-          <span class="gp">El software</span><br>
-          <span class="gc" style="text-shadow:0 0 20px rgba(0,242,254,.4);">ordena tu operación.</span><br>
-          <span class="gg" style="text-shadow:0 0 20px rgba(212,175,55,.4);">El diseño físico</span><br>
-          <span class="gp">multiplica tu valor.</span>
+          <span class="gp">¿Tu negocio todavía</span><br>
+          <span class="gg" style="text-shadow:0 0 20px rgba(212,175,55,.4);">anota todo en papel?</span><br>
+          <span class="gc" style="text-shadow:0 0 20px rgba(0,242,254,.4);">Lo digitalizamos</span><br>
+          <span class="gp">sin complicaciones.</span>
         </h1>
         <p style="font-size:16px;font-weight:500;color:rgba(255,255,255,.4);line-height:1.7;max-width:480px;margin-bottom:40px;">
-          Transformamos PYMEs con caos operativo en negocios modernos de alto valor percibido. Software a medida + renovación física de tu espacio. Pago único, sin suscripciones.
+          Creamos la app de tu negocio a medida — control de citas, clientes y operación diaria. Sin suscripciones mensuales, sin complicaciones técnicas. Un solo pago y tu negocio entra al siglo 21.
         </p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
-          <a href="#contacto" class="btn-cyan">Modernizar mi negocio</a>
+          <a href="#contacto" class="btn-cyan">Quiero mi auditoría gratis</a>
           <a href="#demos" class="btn-outline">Ver demos en vivo ↓</a>
         </div>
         <div style="display:flex;gap:32px;margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);">
           <div>
             <div style="font-size:26px;font-weight:900;color:#00F2FE;font-family:'JetBrains Mono',monospace;">1x</div>
-            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Pago único</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Un solo pago</div>
           </div>
           <div style="width:1px;background:rgba(255,255,255,.06);"></div>
           <div>
@@ -254,38 +254,92 @@ footer{position:relative;z-index:10;}
         </div>
       </div>
       <div style="position:relative;">
-        <div class="terminal">
-          <div class="t-bar">
-            <div class="tdot" style="background:#FF5F57;"></div>
-            <div class="tdot" style="background:#FFBD2E;"></div>
-            <div class="tdot" style="background:#28CA41;"></div>
-            <span style="margin-left:12px;font-size:11px;color:rgba(0,242,254,.4);">lexica · sistema-cliente.js</span>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+ 
+          <!-- Label superior -->
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="height:1px;flex:1;background:linear-gradient(to right,rgba(0,242,254,.25),transparent);"></div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,242,254,.4);">// transformación</span>
+            <div style="height:1px;flex:1;background:linear-gradient(to left,rgba(0,242,254,.25),transparent);"></div>
           </div>
-          <div class="t-body">
-            <div><span class="tm">01 </span><span class="tc">const</span> <span class="tw"> cliente</span> <span class="tm">= {</span></div>
-            <div><span class="tm">02   </span><span class="tg">negocio</span><span class="tm">:</span> <span class="ts"> "Tu PYME local"</span><span class="tm">,</span></div>
-            <div><span class="tm">03   </span><span class="tg">problema</span><span class="tm">:</span> <span class="ts"> "Caos en papel + fachada antigua"</span><span class="tm">,</span></div>
-            <div><span class="tm">04   </span><span class="tg">inversion</span><span class="tm">:</span><span class="tc"> "pago_unico"</span><span class="tm">,</span></div>
-            <div><span class="tm">05 }</span></div>
-            <div style="margin-top:10px;"><span class="tm">06 </span><span class="tc">await</span> <span class="tw"> lexica</span><span class="tm">.</span><span class="tg">transformar</span><span class="tm">(cliente)</span></div>
-            <div><span class="tm">07 </span><span class="tm">// ✓ App web instalada: </span><span class="ts">OK</span></div>
-            <div><span class="tm">08 </span><span class="tm">// ✓ WhatsApp auto: </span><span class="ts">OK</span></div>
-            <div><span class="tm">09 </span><span class="tm">// ✓ Fachada rediseñada: </span><span class="tg">OK</span></div>
-            <div><span class="tm">10 </span><span class="tm">// ✓ Clientes premium: </span><span class="tc">ACTIVO</span></div>
-            <div style="margin-top:10px;"><span class="tc">▶ </span><span class="tw">_</span><span class="cur"></span></div>
+ 
+          <!-- DOS CARDS LADO A LADO con tilt 3D -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+ 
+            <!-- CARD: SIN SISTEMA -->
+            <div class="svc-card" data-tilt style="padding:28px 24px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);margin-bottom:22px;letter-spacing:.1em;">SIN_DIGITALIZAR</div>
+              <div style="width:44px;height:44px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </div>
+              <h3 style="font-size:15px;font-weight:800;margin-bottom:16px;color:rgba(255,255,255,.8);">Sin digitalizar</h3>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;">Citas en libreta o en tu cabeza</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;">Clientes llaman para confirmar</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;">Citas olvidadas, dinero perdido</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.5);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.5;">Todo caos por WhatsApp</span>
+                </div>
+              </div>
+            </div>
+ 
+            <!-- CARD: CON LÉXICA -->
+            <div class="svc-card cc" data-tilt style="padding:28px 24px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(0,242,254,.5);margin-bottom:22px;letter-spacing:.1em;">DIGITALIZADO</div>
+              <div style="width:44px;height:44px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.25);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 style="font-size:15px;font-weight:800;margin-bottom:16px;color:#fff;">Con Léxica</h3>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:#00F2FE;box-shadow:0 0 4px rgba(0,242,254,.6);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.5;">Agenda digital en la nube</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:#00F2FE;box-shadow:0 0 4px rgba(0,242,254,.6);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.5;">Confirmaciones automáticas por WhatsApp</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:#00F2FE;box-shadow:0 0 4px rgba(0,242,254,.6);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.5;">Tu operación bajo control, sin caos</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:3px;height:3px;border-radius:50%;background:#00F2FE;box-shadow:0 0 4px rgba(0,242,254,.6);flex-shrink:0;"></div>
+                  <span style="font-size:12px;color:rgba(255,255,255,.75);line-height:1.5;">Nunca más una cita perdida</span>
+                </div>
+              </div>
+            </div>
           </div>
+ 
+          <!-- Tag inferior dorado -->
+          <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
+            <div style="height:1px;width:28px;background:linear-gradient(to right,transparent,rgba(212,175,55,.7));"></div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(212,175,55,.9);">pago único · sin mensualidades</span>
+            <div style="height:1px;width:28px;background:linear-gradient(to left,transparent,rgba(212,175,55,.7));"></div>
+          </div>
+ 
         </div>
         <div style="position:absolute;top:20%;left:10%;width:80%;height:60%;background:radial-gradient(ellipse,rgba(0,242,254,.1),transparent 70%);pointer-events:none;filter:blur(20px);z-index:-1;"></div>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ══════════ TICKER ══════════ -->
 <div style="border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);background:rgba(0,242,254,.03);padding:14px 0;overflow:hidden;position:relative;z-index:10;">
   <div class="ticker-track" id="ticker"></div>
 </div>
-
+ 
 <!-- ══════════ SERVICIOS ══════════ -->
 <section id="servicios" style="padding:120px 24px;max-width:1280px;margin:0 auto;" class="fu">
   <div style="text-align:center;max-width:640px;margin:0 auto 72px;">
@@ -301,8 +355,8 @@ footer{position:relative;z-index:10;}
       <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       </div>
-      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Infraestructura Digital</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Web Apps privadas a medida. Control de citas, seguimiento de clientes, alertas por WhatsApp, bases de datos en la nube. Si lo anotas en papel hoy, mañana lo tienes digitalizado.</p>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Tu App Web Privada</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Una app hecha solo para tu negocio: control de citas, seguimiento de clientes, alertas automáticas por WhatsApp y base de datos en la nube. Tu equipo la usa desde cualquier celular, sin instalar nada.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-c">Agenda Digital</span><span class="tag-c">WhatsApp Auto</span><span class="tag-c">Base de datos</span></div>
     </div>
     <div class="svc-card cg" data-tilt>
@@ -310,8 +364,8 @@ footer{position:relative;z-index:10;}
       <div style="width:52px;height:52px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
       </div>
-      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Branding de Superficie</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Renovamos tu fachada, rotulación y señalética interior. Vinilos premium de alta densidad, estructuras corpóreas iluminadas y diseño arquitectónico que grita modernidad desde la calle.</p>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Imagen Visual del Local <span style="font-size:12px;font-weight:600;color:rgba(212,175,55,.5);">(adicional)</span></h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">¿Quieres que tu local también se vea moderno? Diseñamos y colocamos vinilos en paredes, rótulos, stands, mantas y material POP. El software ordena tu operación — la imagen visual multiplica tu valor percibido.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-g">Fachadas</span><span class="tag-g">Vinilos Premium</span><span class="tag-g">Rotulación 3D</span></div>
     </div>
     <div class="svc-card cc" data-tilt>
@@ -319,20 +373,20 @@ footer{position:relative;z-index:10;}
       <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
       </div>
-      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Inteligencia Comercial</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Dashboards sencillos que muestran qué productos generan más, qué clientes están inactivos, y automatizaciones para reactivarlos. El poder de IA generativa al alcance de tu recepcionista.</p>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Control e Inteligencia</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Dashboards simples que cualquier recepcionista puede usar: qué servicio se vende más, qué clientes no han vuelto, cuánto ingresaste esta semana. Información útil, sin complicaciones técnicas.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-c">Dashboard</span><span class="tag-c">Reportes IA</span><span class="tag-c">Reactivación</span></div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ══════════ PYMES BLOCK ══════════ -->
 <section style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
   <div class="pyme-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.1);border-radius:24px;padding:60px;">
     <div>
       <div class="slabel" style="color:#D4AF37;">Para quién es esto</div>
-      <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px;"><span class="gp">Tu negocio lo anota</span><br><span class="gg">en papel todavía.</span></h2>
-      <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">No necesitas ser una corporación. Trabajamos con PYMEs locales con local físico que quieren dar el salto sin endeudarse. Si tu equipo usa cuadernos o grupos de WhatsApp para gestionar clientes... somos lo que necesitas.</p>
+      <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px;"><span class="gp">Si tienes un local</span><br><span class="gg">y clientes reales...</span></h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">No necesitas ser una cadena grande. Trabajamos con negocios de 1 a 20 personas que quieren modernizarse sin endeudarse ni pagar mensualidades. Si hoy anotas algo en papel, hay algo que podemos mejorar juntos.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
@@ -354,49 +408,49 @@ footer{position:relative;z-index:10;}
     </div>
   </div>
 </section>
-
+ 
 <!-- ══════════ PROCESO ══════════ -->
 <section id="proceso" style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
   <div style="text-align:center;max-width:560px;margin:0 auto 72px;">
     <div class="slabel" style="color:#00F2FE;justify-content:center;">Sin riesgos · Pago único</div>
     <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px;"><span class="gp">Cómo funciona</span></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Tú no pones capital en materiales. Nosotros ponemos el know-how. Ganan todos.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Cuatro pasos. Sin sorpresas. Sin riesgos. Tú solo pagas cuando ya viste la solución funcionando.</p>
   </div>
   <div style="max-width:680px;margin:0 auto;" class="pline">
     <div style="display:flex;gap:22px;padding-bottom:38px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#00F2FE;position:relative;z-index:2;">01</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Auditoría gratuita de tu negocio</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">En menos de 24 horas analizamos tus dolores operativos y el estado de tu espacio físico. Sin compromiso, sin costo.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Auditoría gratuita — sin compromiso</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Conversamos sobre tu negocio. ¿Cómo llevas las citas hoy? ¿Qué duele más? En 24 horas te decimos exactamente qué podemos mejorar y cómo.</p></div>
     </div>
     <div style="display:flex;gap:22px;padding-bottom:38px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#D4AF37;position:relative;z-index:2;">02</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Propuesta + demo en vivo en tablet</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Te mostramos la solución funcionando. No PowerPoints. El sistema interactivo de tu negocio corriendo en tiempo real.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Demo en vivo — la pruebas tú mismo</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Te mostramos la demo de tu tipo de negocio y la pruebas tú. Ves exactamente lo que recibirás antes de pagar un solo quetzal.</p></div>
     </div>
     <div style="display:flex;gap:22px;padding-bottom:38px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#00F2FE;position:relative;z-index:2;">03</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Firma, pago único, nosotros ejecutamos</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Un solo pago por la estrategia, el diseño y la configuración completa del software. Sin costos recurrentes ni suscripciones obligatorias.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Un solo pago, nosotros lo construimos</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Pagas una sola vez por la creación completa de tu sistema. Sin mensualidades, sin sorpresas al mes siguiente.</p></div>
     </div>
     <div style="display:flex;gap:22px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#D4AF37;position:relative;z-index:2;">04</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Sistema entregado + upselling opcional</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Tu negocio transformado. Opcionalmente: automatización de redes, dashboards avanzados, apps extra. El poder de IA generativa a tu servicio.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Tu sistema listo — y lo que sigue</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Tu equipo ya lo usa. Si después quieres más — imagen visual del local, dashboards avanzados, más automatizaciones — lo hacemos como mejora adicional.</p></div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ══════════ DEMOS INTERACTIVAS ══════════ -->
 <section id="demos" style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
   <div style="text-align:center;max-width:600px;margin:0 auto 60px;">
     <div class="slabel" style="color:#D4AF37;justify-content:center;">Ecosistemas Activos de Simulación</div>
-    <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px;"><span class="gp">No te explicamos el sistema.</span><br><span class="gc">Te lo ponemos a correr.</span></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Cada módulo es interactivo. Agrega citas, consulta estados, controla el aforo. Así funciona exactamente para tu cliente.</p>
+    <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px;"><span class="gp">Así se ve el sistema</span><br><span class="gc">de tu negocio.</span></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Estos módulos son 100% interactivos. Úsalos como si fueras el dueño del negocio — agrega citas, consulta vehículos, controla membresías.</p>
   </div>
-
+ 
   <!-- TABS -->
   <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:40px;">
     <button class="dtab act" id="tab-salon"  onclick="showDemo('salon')">Salón &amp; Spa</button>
     <button class="dtab"     id="tab-taller" onclick="showDemo('taller')">Taller Automotriz</button>
     <button class="dtab"     id="tab-gym"    onclick="showDemo('gym')">Gym &amp; Fitness</button>
   </div>
-
+ 
   <!-- ── DEMO SALÓN ── -->
   <div id="demo-salon">
     <div class="glass" style="border-radius:24px;overflow:hidden;">
@@ -423,7 +477,7 @@ footer{position:relative;z-index:10;}
       <div class="walog" id="s-walog"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:8px;letter-spacing:.08em;">// LOG WhatsApp Automático</div><div class="waline" style="color:rgba(255,255,255,.25);font-style:italic;">Esperando actividad...</div></div>
     </div>
   </div>
-
+ 
   <!-- ── DEMO TALLER ── -->
   <div id="demo-taller" style="display:none;">
     <div class="glass" style="border-radius:24px;overflow:hidden;border-color:rgba(212,175,55,.15);">
@@ -444,7 +498,7 @@ footer{position:relative;z-index:10;}
       </div>
     </div>
   </div>
-
+ 
   <!-- ── DEMO GYM ── -->
   <div id="demo-gym" style="display:none;">
     <div class="glass" style="border-radius:24px;overflow:hidden;">
@@ -474,20 +528,20 @@ footer{position:relative;z-index:10;}
       </div>
     </div>
   </div>
-
+ 
   <div style="margin-top:48px;text-align:center;">
     <p style="font-size:14px;color:rgba(255,255,255,.3);margin-bottom:18px;">¿Tu sector no está aquí? Construimos tu módulo desde cero.</p>
     <a href="#contacto" class="btn-cyan">Solicitar mi demo personalizado →</a>
   </div>
 </section>
-
+ 
 <!-- ══════════ CONTACTO ══════════ -->
 <section id="contacto" style="padding:0 24px 120px;max-width:800px;margin:0 auto;" class="fu">
   <div class="glass" style="border-radius:28px;padding:60px;">
     <div style="text-align:center;margin-bottom:44px;">
       <div class="slabel" style="color:#00F2FE;justify-content:center;">Paso 1 de 4</div>
       <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px;"><span class="gp">Iniciar Conexión</span><br><span class="gc">Léxica Phygital</span></h2>
-      <p style="font-size:14px;color:rgba(255,255,255,.35);max-width:420px;margin:0 auto;line-height:1.7;">Cuéntanos tu situación. En menos de 24 horas te agendamos una auditoría gratuita y te mostramos la demo de tu sector.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,.35);max-width:420px;margin:0 auto;line-height:1.7;">Cuéntanos sobre tu negocio. En menos de 24 horas te contactamos para mostrarte la demo de tu sector — completamente gratis y sin compromiso.</p>
     </div>
     <div id="fcontainer">
       <div class="grid2" style="margin-bottom:18px;" id="frow1">
@@ -518,6 +572,13 @@ footer{position:relative;z-index:10;}
           <label style="cursor:pointer;"><input type="radio" name="pres" value="algo" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Bastante ($100+)</div></label>
         </div>
       </div>
+      <div style="margin-bottom:20px;">
+        <label class="flabel">¿Te interesa también renovar la imagen visual de tu local?</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;">
+          <label style="cursor:pointer;"><input type="radio" name="visual" value="si" style="display:none;" class="vradio"><div class="vlabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:12px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Sí, también me interesa</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="visual" value="no" style="display:none;" class="vradio"><div class="vlabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:12px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Por ahora solo el software</div></label>
+        </div>
+      </div>
       <button class="btn-gold" onclick="enviarForm()">Solicitar Auditoría Gratuita →</button>
       <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.2);margin-top:14px;">Sin spam. Sin compromiso. Respuesta en menos de 24 horas.</p>
     </div>
@@ -529,11 +590,11 @@ footer{position:relative;z-index:10;}
     </div>
   </div>
 </section>
-
+ 
 <!-- ══════════ FOOTER ══════════ -->
 <footer style="border-top:1px solid rgba(255,255,255,.04);background:rgba(5,7,13,.8);padding:48px 24px;">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px;">
-    <div style="height:36px;width:160px;">
+    <div style="height:68px;width:320px;">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="100%" height="100%">
         <defs>
           <linearGradient id="cc2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE"/><stop offset="100%" stop-color="#4FACFE"/></linearGradient>
@@ -557,7 +618,7 @@ footer{position:relative;z-index:10;}
     <p style="font-size:11px;color:rgba(255,255,255,.12);">© 2026 LÉXICA PHYGITAL · Guatemala · Todos los derechos reservados.</p>
   </div>
 </footer>
-
+ 
 <script>
 // ── NAVBAR ──
 (function(){
@@ -576,14 +637,14 @@ footer{position:relative;z-index:10;}
   mb.addEventListener('click',function(){ var m=document.getElementById('mmenu'); m.style.display=m.style.display==='none'?'block':'none'; });
 })();
 function closeMob(){ document.getElementById('mmenu').style.display='none'; }
-
+ 
 // ── MOBILE GRID FIX ──
 (function(){
   var hg=document.getElementById('hero-grid');
   function chk(){ hg.style.gridTemplateColumns=window.innerWidth<900?'1fr':'1fr 1fr'; }
   chk(); window.addEventListener('resize',chk);
 })();
-
+ 
 // ── TICKER ──
 (function(){
   var items=['✦ Apps web privadas','✦ Automatización WhatsApp','✦ Branding de fachadas','✦ Vinilos premium','✦ Dashboards analíticos','✦ Rotulación 3D','✦ Control de citas','✦ Pago único','✦ Renovación física total','✦ Sin suscripciones','✦ IA generativa','✦ Para PYMEs locales','✦ Demo en vivo'];
@@ -591,28 +652,34 @@ function closeMob(){ document.getElementById('mmenu').style.display='none'; }
   var all=items.concat(items);
   all.forEach(function(x){ var s=document.createElement('span'); s.textContent=x; s.style.cssText='display:inline-block;padding:0 32px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.22);white-space:nowrap;'; t.appendChild(s); });
 })();
-
+ 
 // ── FADE IN ──
 (function(){
   var els=document.querySelectorAll('.fu');
   var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting) x.target.classList.add('vis'); }); },{threshold:0.08});
   els.forEach(function(el){ io.observe(el); });
 })();
-
+ 
 // ── TILT CARDS ──
 document.querySelectorAll('[data-tilt]').forEach(function(c){
   c.addEventListener('mousemove',function(e){ var r=c.getBoundingClientRect(),x=((e.clientX-r.left)-r.width/2)/14,y=((r.height/2)-(e.clientY-r.top))/14; c.style.transform='perspective(1000px) rotateX('+y+'deg) rotateY('+x+'deg) scale3d(1.02,1.02,1.02)'; });
   c.addEventListener('mouseleave',function(){ c.style.transform='perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)'; });
 });
-
+ 
 // ── RADIO BUTTONS ──
+document.querySelectorAll('.vradio').forEach(function(r){
+  r.addEventListener('change',function(){
+    document.querySelectorAll('.vlabel').forEach(function(l){l.style.borderColor='rgba(255,255,255,.08)';l.style.color='rgba(255,255,255,.35)';l.style.background='transparent';});
+    var lbl=r.nextElementSibling;lbl.style.borderColor='rgba(0,242,254,.4)';lbl.style.color='#00F2FE';lbl.style.background='rgba(0,242,254,.05)';
+  });
+});
 document.querySelectorAll('.pradio').forEach(function(r){
   r.addEventListener('change',function(){
     document.querySelectorAll('.plabel').forEach(function(l){ l.style.borderColor='rgba(255,255,255,.08)'; l.style.color='rgba(255,255,255,.35)'; l.style.background='transparent'; });
     var lbl=r.nextElementSibling; lbl.style.borderColor='rgba(0,242,254,.4)'; lbl.style.color='#00F2FE'; lbl.style.background='rgba(0,242,254,.05)';
   });
 });
-
+ 
 // ── FORM ──
 function enviarForm(){
   var nom=document.getElementById('f-nom').value.trim();
@@ -623,12 +690,13 @@ function enviarForm(){
   var pres=document.querySelector('.pradio:checked');
   if(!nom||!neg||!tel||!tipo){ alert('Por favor completa: Nombre, Negocio, WhatsApp y Tipo de negocio.'); return; }
   var waNum='50236075756'; // ← CAMBIA POR TU NÚMERO REAL
-  var txt='🚀 *SOLICITUD DE AUDITORÍA LÉXICA PHYGITAL*\n\n👤 *Nombre:* '+nom+'\n🏢 *Negocio:* '+neg+'\n📱 *Tel:* '+tel+'\n📋 *Sector:* '+tipo+(msg?'\n💬 *Mensaje:* '+msg:'')+(pres?'\n💰 *Tech actual:* '+pres.value:'');
+  var vis=document.querySelector('.vradio:checked');
+  var txt='🚀 *SOLICITUD DE AUDITORÍA — LÉXICA PHYGITAL*\n\n👤 *Nombre:* '+nom+'\n🏢 *Negocio:* '+neg+'\n📱 *WhatsApp:* '+tel+'\n📋 *Sector:* '+tipo+(msg?'\n💬 *Situación actual:* '+msg:'')+(vis?'\n🎨 *Imagen visual del local:* '+(vis.value==='si'?'Sí, le interesa':'Solo software por ahora'):'');
   document.getElementById('fcontainer').style.display='none';
   document.getElementById('fsuccess').style.display='block';
   setTimeout(function(){ window.open('https://wa.me/'+waNum+'?text='+encodeURIComponent(txt),'_blank'); },800);
 }
-
+ 
 // ── DEMO TABS ──
 function showDemo(name){
   ['salon','taller','gym'].forEach(function(d){
@@ -637,7 +705,7 @@ function showDemo(name){
     if(d===name){ t.classList.add('act'); } else { t.classList.remove('act'); }
   });
 }
-
+ 
 // ── DEMO SALÓN ──
 var bahias=[
   {cliente:'Karla Méndez',svc:'Corte + Color',inicio:Date.now()-1000*60*35,min:90,est:'Sofía R.'},
@@ -646,7 +714,7 @@ var bahias=[
   {cliente:'',svc:'',inicio:null,min:0,est:''}
 ];
 var waLines=[];
-
+ 
 function renderSalon(){
   var g=document.getElementById('s-bahias'); if(!g) return;
   g.innerHTML=bahias.map(function(b,i){
@@ -678,14 +746,14 @@ function renderSalon(){
   if(cl){ var n=new Date(); cl.textContent=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0'); }
   renderWALog();
 }
-
+ 
 function renderWALog(){
   var wl=document.getElementById('s-walog'); if(!wl) return;
   if(waLines.length===0) return;
   wl.innerHTML='<div style="font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:8px;letter-spacing:.08em;">// LOG WhatsApp Automático</div>'
     +waLines.slice(-5).reverse().map(function(m){ return '<div class="waline">'+m+'</div>'; }).join('');
 }
-
+ 
 function asignarBahia(){
   var cli=document.getElementById('s-cli').value.trim();
   var svc=document.getElementById('s-svc').value;
@@ -697,7 +765,7 @@ function asignarBahia(){
   waLines.push('['+h+'] ✓ → '+cli+': "Tu cita de '+svc+' está confirmada. ¡Te esperamos!"');
   renderSalon();
 }
-
+ 
 function liberarBahia(i){
   var nom=bahias[i].cliente;
   bahias[i]={cliente:'',svc:'',inicio:null,min:0,est:''};
@@ -705,10 +773,10 @@ function liberarBahia(i){
   waLines.push('['+h+'] ✓ → '+nom+': "Tu servicio terminó. ¡Gracias! Te esperamos pronto 💛"');
   renderSalon();
 }
-
+ 
 setInterval(renderSalon,30000);
 renderSalon();
-
+ 
 // ── DEMO TALLER ──
 var vehiculos=[
   {placa:'P-847XKL',cliente:'Roberto Soto',modelo:'Toyota Hilux 2022',estado:0},
@@ -717,7 +785,7 @@ var vehiculos=[
 ];
 var tEtapas=['Recibido','En diagnóstico','En reparación','Control de calidad','Listo ✓'];
 var tColores=['rgba(255,255,255,.5)','#00F2FE','#D4AF37','#A78BFA','#4ADE80'];
-
+ 
 function renderTaller(){
   var c=document.getElementById('t-vehiculos'); if(!c) return;
   c.innerHTML=vehiculos.map(function(v,vi){
@@ -736,9 +804,9 @@ function renderTaller(){
       +'</div></div>';
   }).join('');
 }
-
+ 
 function avanzarVeh(i,d){ vehiculos[i].estado=Math.max(0,Math.min(4,vehiculos[i].estado+d)); renderTaller(); }
-
+ 
 function consultarPlaca(){
   var p=document.getElementById('t-placa').value.trim().toUpperCase();
   var r=document.getElementById('t-res');
@@ -756,9 +824,9 @@ function consultarPlaca(){
     r.innerHTML='<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;font-size:13px;color:rgba(255,255,255,.3);">Placa no encontrada. Prueba: P-847XKL · M-312BQT · C-091ZPR</div>';
   }
 }
-
+ 
 renderTaller();
-
+ 
 // ── DEMO GYM ──
 var gymAforo=30;
 var GYM_MAX=50;
@@ -769,7 +837,7 @@ var miembros=[
   {nom:'Sofía Castillo',plan:'Mensual',dias:-5},
   {nom:'Andrés Morales',plan:'Semestral',dias:115}
 ];
-
+ 
 function renderGym(){
   var pct=Math.round(gymAforo/GYM_MAX*100);
   var bar=document.getElementById('g-bar');
@@ -800,13 +868,13 @@ function renderGym(){
       +'</div></div>';
   }).join('');
 }
-
+ 
 function setAforo(d){ gymAforo=Math.max(0,Math.min(GYM_MAX,gymAforo+d)); renderGym(); }
 function renovarMiembro(i){ miembros[i].dias=30; renderGym(); }
 function renovarTodos(){ miembros.forEach(function(m){ if(m.dias<0) m.dias=30; }); renderGym(); }
-
+ 
 renderGym();
-
+ 
 // ── THREE.JS ──
 (function(){
   var cv=document.getElementById('cv3d');

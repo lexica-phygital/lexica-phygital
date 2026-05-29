@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Léxica Phygital | Sintaxis Digital. Estructura Física.</title>
+<meta name="description" content="Estudio boutique de transformación integral para PYMEs en Guatemala. Software a medida + branding físico de alto impacto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#05070D;color:#F3F4F6;font-family:'Montserrat',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* Scanlines */
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,242,254,0.012) 2px,rgba(0,242,254,0.012) 4px);pointer-events:none;z-index:1;}
+
+/* Gradients */
+.gc{background:linear-gradient(135deg,#00F2FE,#4FACFE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gg{background:linear-gradient(135deg,#FFDF00,#D4AF37,#AA7C11);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gp{background:linear-gradient(135deg,#fff,#9CA3AF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* Glass */
+.glass{background:rgba(11,15,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.07);}
+
+/* Buttons */
+.btn-cyan{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:15px 36px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(135deg,#00F2FE,#4FACFE);color:#050810;text-decoration:none;overflow:hidden;transition:all .3s;}
+.btn-cyan:hover{box-shadow:0 0 30px rgba(0,242,254,.5);transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:14px 36px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);color:#F3F4F6;text-decoration:none;transition:all .3s;}
+.btn-outline:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04);}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:15px 36px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(135deg,#FFDF00,#D4AF37);color:#0B0F1A;border:none;cursor:pointer;transition:all .3s;}
+.btn-gold:hover{box-shadow:0 0 30px rgba(212,175,55,.5);transform:translateY(-1px);}
+
+/* Service cards */
+.svc-card{padding:40px 36px;border-radius:20px;border:1px solid rgba(255,255,255,.05);background:rgba(11,15,26,.5);backdrop-filter:blur(16px);transition:all .4s;transform-style:preserve-3d;position:relative;overflow:hidden;}
+.svc-card::before{content:'';position:absolute;inset:0;border-radius:20px;opacity:0;transition:opacity .4s;}
+.svc-card.cc::before{background:radial-gradient(ellipse at 30% 0%,rgba(0,242,254,.08),transparent 60%);}
+.svc-card.cg::before{background:radial-gradient(ellipse at 30% 0%,rgba(212,175,55,.08),transparent 60%);}
+.svc-card:hover::before{opacity:1;}
+.svc-card:hover{transform:translateY(-6px);}
+.svc-card.cc:hover{border-color:rgba(0,242,254,.2);}
+.svc-card.cg:hover{border-color:rgba(212,175,55,.2);}
+
+/* Labels */
+.slabel{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;}
+.slabel::before{content:'//';font-family:'JetBrains Mono',monospace;}
+
+/* Tag pills */
+.tag-c{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,242,254,.08);color:#00F2FE;border:1px solid rgba(0,242,254,.15);padding:5px 12px;border-radius:50px;}
+.tag-g{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(212,175,55,.08);color:#D4AF37;border:1px solid rgba(212,175,55,.15);padding:5px 12px;border-radius:50px;}
+
+/* Ticker */
+.ticker-track{display:flex;gap:0;animation:ticker 35s linear infinite;width:max-content;}
+@keyframes ticker{to{transform:translateX(-50%);}}
+
+/* Fade up */
+.fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.fu.vis{opacity:1;transform:translateY(0);}
+
+/* Pulse */
+@keyframes pulseC{0%,100%{box-shadow:0 0 0 0 rgba(0,242,254,.4);}50%{box-shadow:0 0 0 10px rgba(0,242,254,0);}}
+.pdot{animation:pulseC 2s infinite;}
+
+/* Cursor blink */
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.cur{display:inline-block;width:2px;height:16px;background:#00F2FE;animation:blink .6s infinite;vertical-align:middle;margin-left:2px;}
+
+/* Terminal */
+.terminal{background:#020408;border:1px solid rgba(0,242,254,.15);border-radius:16px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.t-bar{background:rgba(0,242,254,.05);padding:12px 20px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(0,242,254,.08);}
+.tdot{width:10px;height:10px;border-radius:50%;}
+.t-body{padding:24px;line-height:1.9;}
+.tc{color:#00F2FE;}.tg{color:#D4AF37;}.tw{color:#F3F4F6;}.tm{color:#6B7280;}.ts{color:#4ADE80;}
+
+/* Process line */
+.pline{position:relative;}
+.pline::before{content:'';position:absolute;left:23px;top:48px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(0,242,254,.3),transparent);}
+
+/* Form */
+.finput{width:100%;background:rgba(5,7,12,.8);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 18px;font-size:14px;color:#F3F4F6;font-family:'Montserrat',sans-serif;transition:all .3s;outline:none;}
+.finput::placeholder{color:rgba(255,255,255,.2);}
+.finput:focus{border-color:rgba(0,242,254,.5);box-shadow:0 0 0 3px rgba(0,242,254,.08);}
+select.finput{color:rgba(255,255,255,.5);cursor:pointer;}
+select.finput option{background:#0B0F1A;color:#F3F4F6;}
+.flabel{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;}
+
+/* Demo app styles */
+.app-header{background:rgba(0,242,254,.05);border-bottom:1px solid rgba(0,242,254,.1);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.app-dot{width:8px;height:8px;background:#00F2FE;border-radius:50%;box-shadow:0 0 8px #00F2FE;}
+.app-dot-g{width:8px;height:8px;background:#D4AF37;border-radius:50%;box-shadow:0 0 8px #D4AF37;}
+.app-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;}
+
+/* Demo tab */
+.dtab{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 20px;border-radius:50px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s;}
+.dtab.act{border-color:rgba(0,242,254,.5);background:rgba(0,242,254,.1);color:#00F2FE;}
+.dtab:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7);}
+
+/* Demo input */
+.dinput{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:9px 12px;font-size:12px;color:#fff;font-family:'Montserrat',sans-serif;outline:none;transition:border .2s;}
+.dinput:focus{border-color:rgba(0,242,254,.4);}
+.dselect{background:#0B0F1A;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:9px 12px;font-size:12px;color:rgba(255,255,255,.7);font-family:'Montserrat',monospace;outline:none;}
+.dbtn-c{background:linear-gradient(135deg,#00F2FE,#4FACFE);color:#050810;border:none;border-radius:8px;padding:10px 18px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
+.dbtn-g{background:linear-gradient(135deg,#FFDF00,#D4AF37);color:#0B0F1A;border:none;border-radius:10px;padding:12px 22px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;}
+.dbtn-sm{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:6px;cursor:pointer;}
+
+/* Bahia card */
+.bahia{background:rgba(5,7,13,.7);border:1px solid rgba(0,242,254,.12);border-radius:14px;padding:18px;transition:all .3s;}
+.bahia.libre{border-color:rgba(212,175,55,.12);}
+
+/* Progress bar */
+.pbar-wrap{background:rgba(5,7,13,.8);border-radius:8px;height:6px;overflow:hidden;border:1px solid rgba(255,255,255,.05);}
+.pbar{height:100%;border-radius:8px;transition:width .6s ease;background:linear-gradient(90deg,#00F2FE,#4FACFE);}
+.pbar-g{background:linear-gradient(90deg,#D4AF37,#FFDF00);}
+
+/* Vehicle card */
+.vehicle{background:rgba(5,7,13,.7);border:1px solid rgba(212,175,55,.1);border-radius:14px;padding:18px;margin-bottom:10px;}
+
+/* Member row */
+.member{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:10px;margin-bottom:8px;flex-wrap:wrap;gap:8px;}
+
+/* Aforo bar */
+.abar-wrap{background:rgba(5,7,13,.8);border-radius:12px;height:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);}
+.abar{height:100%;border-radius:12px;transition:width .4s ease,background .4s;}
+
+/* WA log */
+.walog{background:rgba(5,7,13,.8);border:1px solid rgba(212,175,55,.1);border-radius:14px;padding:16px;max-height:110px;overflow-y:auto;margin:0 24px 24px;}
+.waline{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+
+/* Grid helpers */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+@media(max-width:900px){
+  .grid2{grid-template-columns:1fr;}
+  .hero-h{font-size:36px!important;}
+  .pyme-grid{grid-template-columns:1fr!important;}
+}
+@media(max-width:640px){
+  .grid3{grid-template-columns:1fr 1fr;}
+  .salon-form-row{grid-template-columns:1fr 1fr!important;}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#05070D;}
+::-webkit-scrollbar-thumb{background:rgba(0,242,254,.3);border-radius:2px;}
+
+/* Cyber grid bg on section */
+.cgrid{background-image:linear-gradient(rgba(0,242,254,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,242,254,.03) 1px,transparent 1px);background-size:60px 60px;}
+
+section{position:relative;z-index:10;}
+header{position:relative;z-index:100;}
+footer{position:relative;z-index:10;}
+</style>
+</head>
+<body>
+
+<!-- 3D CANVAS -->
+<canvas id="cv3d" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.6;"></canvas>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header id="navbar" style="position:fixed;top:0;left:0;width:100%;z-index:100;transition:all .4s;">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="#inicio" style="display:flex;align-items:center;height:44px;width:200px;flex-shrink:0;text-decoration:none;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="100%" height="100%">
+        <defs>
+          <linearGradient id="cc" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE"/><stop offset="100%" stop-color="#4FACFE"/></linearGradient>
+          <linearGradient id="qg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFDF00"/><stop offset="50%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#846200"/></linearGradient>
+          <linearGradient id="lp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#6B7280"/></linearGradient>
+          <filter id="ng"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <g transform="translate(20,10)">
+          <path d="M35,60 L65,20 L105,45 L75,85 Z" fill="none" stroke="url(#cc)" stroke-width="1" opacity=".3" stroke-dasharray="3,3"/>
+          <path d="M65,20 L105,45 L75,85 Z" fill="none" stroke="url(#cc)" stroke-width="2" filter="url(#ng)"/>
+          <circle cx="65" cy="20" r="3.5" fill="#00F2FE" filter="url(#ng)"/>
+          <circle cx="105" cy="45" r="3.5" fill="#00F2FE"/>
+          <circle cx="75" cy="85" r="3.5" fill="#00F2FE"/>
+          <path d="M35,60 L65,40 L65,75 L35,95 Z" fill="url(#qg)" opacity=".9"/>
+          <path d="M65,40 L95,60 L95,95 L65,75 Z" fill="url(#qg)" opacity=".65"/>
+          <path d="M20,50 L65,75 L115,40" fill="none" stroke="#FFFFFF" stroke-width="2.5" filter="url(#ng)" opacity=".95"/>
+        </g>
+        <text x="160" y="58" font-family="'Montserrat',sans-serif" font-size="38" font-weight="900" fill="url(#lp)" letter-spacing="8">LÉXICA</text>
+        <text x="160" y="88" font-family="'Montserrat',sans-serif" font-size="13" font-weight="700" fill="url(#cc)" letter-spacing="12">P H Y G I T A L</text>
+      </svg>
+    </a>
+    <nav id="dnav" style="display:none;gap:40px;align-items:center;">
+      <a href="#inicio"    class="navlink">Inicio</a>
+      <a href="#servicios" class="navlink">Servicios</a>
+      <a href="#proceso"   class="navlink">Proceso</a>
+      <a href="#demos"     class="navlink">Demos</a>
+      <a href="#contacto"  class="navlink-btn">Auditoría Gratis</a>
+    </nav>
+    <button id="mbtn" style="display:block;background:none;border:none;cursor:pointer;padding:8px;color:rgba(255,255,255,.7);" aria-label="Menú">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div id="mmenu" style="display:none;background:rgba(5,7,13,.98);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.05);padding:16px 24px 24px;">
+    <a href="#inicio"    onclick="closeMob()" class="mmlink">Inicio</a>
+    <a href="#servicios" onclick="closeMob()" class="mmlink">Servicios</a>
+    <a href="#proceso"   onclick="closeMob()" class="mmlink">Proceso</a>
+    <a href="#demos"     onclick="closeMob()" class="mmlink">Demos</a>
+    <a href="#contacto"  onclick="closeMob()" style="display:block;margin-top:14px;text-align:center;padding:14px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00F2FE;border:1px solid rgba(0,242,254,.4);border-radius:50px;text-decoration:none;">Auditoría Gratis</a>
+  </div>
+</header>
+
+<style>
+.navlink{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
+.navlink:hover{color:#00F2FE;}
+.navlink-btn{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00F2FE;border:1px solid rgba(0,242,254,.4);padding:11px 24px;border-radius:50px;text-decoration:none;transition:all .3s;white-space:nowrap;}
+.navlink-btn:hover{background:rgba(0,242,254,.08);box-shadow:0 0 20px rgba(0,242,254,.2);}
+.mmlink{display:block;padding:12px 0;font-size:14px;font-weight:600;color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);}
+</style>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="inicio" style="min-height:100vh;display:flex;align-items:center;padding:120px 24px 80px;">
+  <div style="max-width:1280px;margin:0 auto;width:100%;">
+    <div style="margin-bottom:32px;">
+      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);border-radius:50px;padding:8px 18px;">
+        <span class="pdot" style="width:6px;height:6px;background:#D4AF37;border-radius:50%;flex-shrink:0;"></span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#D4AF37;">Guatemala · Transformación PYME · Est. 2026</span>
+      </div>
+    </div>
+    <div class="grid2" id="hero-grid">
+      <div>
+        <h1 class="hero-h" style="font-size:56px;font-weight:900;line-height:1.06;letter-spacing:-.02em;margin-bottom:28px;">
+          <span class="gp">El software</span><br>
+          <span class="gc" style="text-shadow:0 0 20px rgba(0,242,254,.4);">ordena tu operación.</span><br>
+          <span class="gg" style="text-shadow:0 0 20px rgba(212,175,55,.4);">El diseño físico</span><br>
+          <span class="gp">multiplica tu valor.</span>
+        </h1>
+        <p style="font-size:16px;font-weight:500;color:rgba(255,255,255,.4);line-height:1.7;max-width:480px;margin-bottom:40px;">
+          Transformamos PYMEs con caos operativo en negocios modernos de alto valor percibido. Software a medida + renovación física de tu espacio. Pago único, sin suscripciones.
+        </p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="#contacto" class="btn-cyan">Modernizar mi negocio</a>
+          <a href="#demos" class="btn-outline">Ver demos en vivo ↓</a>
+        </div>
+        <div style="display:flex;gap:32px;margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);">
+          <div>
+            <div style="font-size:26px;font-weight:900;color:#00F2FE;font-family:'JetBrains Mono',monospace;">1x</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Pago único</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.06);"></div>
+          <div>
+            <div style="font-size:26px;font-weight:900;color:#D4AF37;font-family:'JetBrains Mono',monospace;">3</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Ejes de transformación</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.06);"></div>
+          <div>
+            <div style="font-size:26px;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace;">24h</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Primera auditoría</div>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="terminal">
+          <div class="t-bar">
+            <div class="tdot" style="background:#FF5F57;"></div>
+            <div class="tdot" style="background:#FFBD2E;"></div>
+            <div class="tdot" style="background:#28CA41;"></div>
+            <span style="margin-left:12px;font-size:11px;color:rgba(0,242,254,.4);">lexica · sistema-cliente.js</span>
+          </div>
+          <div class="t-body">
+            <div><span class="tm">01 </span><span class="tc">const</span> <span class="tw"> cliente</span> <span class="tm">= {</span></div>
+            <div><span class="tm">02   </span><span class="tg">negocio</span><span class="tm">:</span> <span class="ts"> "Tu PYME local"</span><span class="tm">,</span></div>
+            <div><span class="tm">03   </span><span class="tg">problema</span><span class="tm">:</span> <span class="ts"> "Caos en papel + fachada antigua"</span><span class="tm">,</span></div>
+            <div><span class="tm">04   </span><span class="tg">inversion</span><span class="tm">:</span><span class="tc"> "pago_unico"</span><span class="tm">,</span></div>
+            <div><span class="tm">05 }</span></div>
+            <div style="margin-top:10px;"><span class="tm">06 </span><span class="tc">await</span> <span class="tw"> lexica</span><span class="tm">.</span><span class="tg">transformar</span><span class="tm">(cliente)</span></div>
+            <div><span class="tm">07 </span><span class="tm">// ✓ App web instalada: </span><span class="ts">OK</span></div>
+            <div><span class="tm">08 </span><span class="tm">// ✓ WhatsApp auto: </span><span class="ts">OK</span></div>
+            <div><span class="tm">09 </span><span class="tm">// ✓ Fachada rediseñada: </span><span class="tg">OK</span></div>
+            <div><span class="tm">10 </span><span class="tm">// ✓ Clientes premium: </span><span class="tc">ACTIVO</span></div>
+            <div style="margin-top:10px;"><span class="tc">▶ </span><span class="tw">_</span><span class="cur"></span></div>
+          </div>
+        </div>
+        <div style="position:absolute;top:20%;left:10%;width:80%;height:60%;background:radial-gradient(ellipse,rgba(0,242,254,.1),transparent 70%);pointer-events:none;filter:blur(20px);z-index:-1;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TICKER ══════════ -->
+<div style="border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);background:rgba(0,242,254,.03);padding:14px 0;overflow:hidden;position:relative;z-index:10;">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- ══════════ SERVICIOS ══════════ -->
+<section id="servicios" style="padding:120px 24px;max-width:1280px;margin:0 auto;" class="fu">
+  <div style="text-align:center;max-width:640px;margin:0 auto 72px;">
+    <div class="slabel" style="color:#00F2FE;justify-content:center;">Infraestructura Integrada</div>
+    <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:18px;">
+      <span class="gp">Tres ejes.</span><br><span class="gc">Una transformación total.</span>
+    </h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">No vendemos servicios sueltos. Diseñamos ecosistemas donde el software y el espacio físico trabajan como un solo organismo.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+    <div class="svc-card cc" data-tilt>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(0,242,254,.4);margin-bottom:28px;letter-spacing:.1em;">EJE_01 · SINTAXIS</div>
+      <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Infraestructura Digital</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Web Apps privadas a medida. Control de citas, seguimiento de clientes, alertas por WhatsApp, bases de datos en la nube. Si lo anotas en papel hoy, mañana lo tienes digitalizado.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-c">Agenda Digital</span><span class="tag-c">WhatsApp Auto</span><span class="tag-c">Base de datos</span></div>
+    </div>
+    <div class="svc-card cg" data-tilt>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(212,175,55,.4);margin-bottom:28px;letter-spacing:.1em;">EJE_02 · ESTRUCTURA</div>
+      <div style="width:52px;height:52px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Branding de Superficie</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Renovamos tu fachada, rotulación y señalética interior. Vinilos premium de alta densidad, estructuras corpóreas iluminadas y diseño arquitectónico que grita modernidad desde la calle.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-g">Fachadas</span><span class="tag-g">Vinilos Premium</span><span class="tag-g">Rotulación 3D</span></div>
+    </div>
+    <div class="svc-card cc" data-tilt>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(0,242,254,.4);margin-bottom:28px;letter-spacing:.1em;">EJE_03 · MÉTRICAS</div>
+      <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+      </div>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Inteligencia Comercial</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Dashboards sencillos que muestran qué productos generan más, qué clientes están inactivos, y automatizaciones para reactivarlos. El poder de IA generativa al alcance de tu recepcionista.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-c">Dashboard</span><span class="tag-c">Reportes IA</span><span class="tag-c">Reactivación</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PYMES BLOCK ══════════ -->
+<section style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
+  <div class="pyme-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.1);border-radius:24px;padding:60px;">
+    <div>
+      <div class="slabel" style="color:#D4AF37;">Para quién es esto</div>
+      <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px;"><span class="gp">Tu negocio lo anota</span><br><span class="gg">en papel todavía.</span></h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">No necesitas ser una corporación. Trabajamos con PYMEs locales con local físico que quieren dar el salto sin endeudarse. Si tu equipo usa cuadernos o grupos de WhatsApp para gestionar clientes... somos lo que necesitas.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
+        <div style="width:34px;height:34px;background:rgba(0,242,254,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Clínicas y consultorios</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">Agenda sincronizada, historiales en la nube, recordatorios automáticos.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
+        <div style="width:34px;height:34px;background:rgba(212,175,55,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Talleres automotrices</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">El cliente consulta el estado de su carro por placa. Sin llamadas.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
+        <div style="width:34px;height:34px;background:rgba(0,242,254,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Salones, spas y veterinarias</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">Control de bahías, grooms, vacunas y citas desde una pantalla simple.</div></div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
+        <div style="width:34px;height:34px;background:rgba(212,175,55,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Cualquier local comercial</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">Si tienes clientes y un espacio físico, tenemos una solución para ti.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESO ══════════ -->
+<section id="proceso" style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
+  <div style="text-align:center;max-width:560px;margin:0 auto 72px;">
+    <div class="slabel" style="color:#00F2FE;justify-content:center;">Sin riesgos · Pago único</div>
+    <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px;"><span class="gp">Cómo funciona</span></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Tú no pones capital en materiales. Nosotros ponemos el know-how. Ganan todos.</p>
+  </div>
+  <div style="max-width:680px;margin:0 auto;" class="pline">
+    <div style="display:flex;gap:22px;padding-bottom:38px;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#00F2FE;position:relative;z-index:2;">01</div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Auditoría gratuita de tu negocio</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">En menos de 24 horas analizamos tus dolores operativos y el estado de tu espacio físico. Sin compromiso, sin costo.</p></div>
+    </div>
+    <div style="display:flex;gap:22px;padding-bottom:38px;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#D4AF37;position:relative;z-index:2;">02</div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Propuesta + demo en vivo en tablet</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Te mostramos la solución funcionando. No PowerPoints. El sistema interactivo de tu negocio corriendo en tiempo real.</p></div>
+    </div>
+    <div style="display:flex;gap:22px;padding-bottom:38px;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#00F2FE;position:relative;z-index:2;">03</div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Firma, pago único, nosotros ejecutamos</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Un solo pago por la estrategia, el diseño y la configuración completa del software. Sin costos recurrentes ni suscripciones obligatorias.</p></div>
+    </div>
+    <div style="display:flex;gap:22px;">
+      <div style="flex-shrink:0;width:48px;height:48px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#D4AF37;position:relative;z-index:2;">04</div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Sistema entregado + upselling opcional</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Tu negocio transformado. Opcionalmente: automatización de redes, dashboards avanzados, apps extra. El poder de IA generativa a tu servicio.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DEMOS INTERACTIVAS ══════════ -->
+<section id="demos" style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
+  <div style="text-align:center;max-width:600px;margin:0 auto 60px;">
+    <div class="slabel" style="color:#D4AF37;justify-content:center;">Ecosistemas Activos de Simulación</div>
+    <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px;"><span class="gp">No te explicamos el sistema.</span><br><span class="gc">Te lo ponemos a correr.</span></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Cada módulo es interactivo. Agrega citas, consulta estados, controla el aforo. Así funciona exactamente para tu cliente.</p>
+  </div>
+
+  <!-- TABS -->
+  <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:40px;">
+    <button class="dtab act" id="tab-salon"  onclick="showDemo('salon')">Salón &amp; Spa</button>
+    <button class="dtab"     id="tab-taller" onclick="showDemo('taller')">Taller Automotriz</button>
+    <button class="dtab"     id="tab-gym"    onclick="showDemo('gym')">Gym &amp; Fitness</button>
+  </div>
+
+  <!-- ── DEMO SALÓN ── -->
+  <div id="demo-salon">
+    <div class="glass" style="border-radius:24px;overflow:hidden;">
+      <div class="app-header" style="justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;"><div class="app-dot"></div><span class="app-label" style="color:#00F2FE;">SALON_OS · Panel de Bahías en Vivo</span></div>
+        <span id="s-clock" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.2);"></span>
+      </div>
+      <div id="s-bahias" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:24px;"></div>
+      <div style="padding:0 24px 24px;">
+        <div style="background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(0,242,254,.5);margin-bottom:12px;letter-spacing:.1em;">// NUEVA CITA</div>
+          <div class="salon-form-row" style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;">
+            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;">Cliente</div><input id="s-cli" type="text" placeholder="Nombre..." class="dinput" style="width:100%;"></div>
+            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;">Servicio</div>
+              <select id="s-svc" class="dselect" style="width:100%;"><option>Corte + Color</option><option>Keratina</option><option>Manicure Premium</option><option>Facial Boutique</option><option>Tinte Completo</option></select>
+            </div>
+            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;">Bahía</div>
+              <select id="s-bahia" class="dselect" style="width:100%;"><option value="0">Bahía 1</option><option value="1">Bahía 2</option><option value="2">Bahía 3</option><option value="3">Bahía 4</option></select>
+            </div>
+            <button class="dbtn-c" onclick="asignarBahia()">+ Asignar</button>
+          </div>
+        </div>
+      </div>
+      <div class="walog" id="s-walog"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:8px;letter-spacing:.08em;">// LOG WhatsApp Automático</div><div class="waline" style="color:rgba(255,255,255,.25);font-style:italic;">Esperando actividad...</div></div>
+    </div>
+  </div>
+
+  <!-- ── DEMO TALLER ── -->
+  <div id="demo-taller" style="display:none;">
+    <div class="glass" style="border-radius:24px;overflow:hidden;border-color:rgba(212,175,55,.15);">
+      <div class="app-header" style="background:rgba(212,175,55,.05);border-bottom-color:rgba(212,175,55,.1);">
+        <div class="app-dot-g"></div><span class="app-label" style="color:#D4AF37;">TALLER_OS · Seguimiento por Placa</span>
+      </div>
+      <div style="padding:24px;border-bottom:1px solid rgba(255,255,255,.05);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(212,175,55,.6);margin-bottom:14px;">Vista del Cliente · Consulta tu vehículo</div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+          <input id="t-placa" type="text" placeholder="Ej: P-847XKL" class="dinput" style="width:180px;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;" oninput="this.value=this.value.toUpperCase()">
+          <button class="dbtn-g" onclick="consultarPlaca()">Consultar estado →</button>
+        </div>
+        <div id="t-res" style="margin-top:18px;"></div>
+      </div>
+      <div style="padding:24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;">Panel Interno · Actualizar vehículos</div>
+        <div id="t-vehiculos"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DEMO GYM ── -->
+  <div id="demo-gym" style="display:none;">
+    <div class="glass" style="border-radius:24px;overflow:hidden;">
+      <div class="app-header" style="justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:10px;"><div class="app-dot"></div><span class="app-label" style="color:#00F2FE;">GYM_OS · Control de Aforo y Membresías</span></div>
+        <span id="g-aforo-txt" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);">0/50 personas</span>
+      </div>
+      <div style="padding:24px 24px 16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">Aforo actual</span>
+          <div style="display:flex;gap:8px;">
+            <button onclick="setAforo(-1)" style="width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;font-size:18px;cursor:pointer;line-height:1;">−</button>
+            <button onclick="setAforo(1)"  style="width:32px;height:32px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.3);border-radius:8px;color:#00F2FE;font-size:18px;cursor:pointer;line-height:1;">+</button>
+          </div>
+        </div>
+        <div class="abar-wrap"><div id="g-bar" class="abar" style="width:60%;background:linear-gradient(90deg,#00F2FE,#4FACFE);"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px;">
+          <span style="font-size:10px;color:rgba(255,255,255,.25);">0</span>
+          <span id="g-status" style="font-size:10px;font-weight:700;color:#00F2FE;letter-spacing:.1em;">CAPACIDAD NORMAL</span>
+          <span style="font-size:10px;color:rgba(255,255,255,.25);">MAX 50</span>
+        </div>
+      </div>
+      <div style="padding:8px 24px 24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px;">Membresías activas</div>
+        <div id="g-members"></div>
+        <button onclick="renovarTodos()" style="width:100%;background:rgba(0,242,254,.06);border:1px solid rgba(0,242,254,.2);border-radius:10px;padding:12px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00F2FE;cursor:pointer;margin-top:12px;transition:all .2s;">⟳ Auto-Renovar Membresías Vencidas</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;text-align:center;">
+    <p style="font-size:14px;color:rgba(255,255,255,.3);margin-bottom:18px;">¿Tu sector no está aquí? Construimos tu módulo desde cero.</p>
+    <a href="#contacto" class="btn-cyan">Solicitar mi demo personalizado →</a>
+  </div>
+</section>
+
+<!-- ══════════ CONTACTO ══════════ -->
+<section id="contacto" style="padding:0 24px 120px;max-width:800px;margin:0 auto;" class="fu">
+  <div class="glass" style="border-radius:28px;padding:60px;">
+    <div style="text-align:center;margin-bottom:44px;">
+      <div class="slabel" style="color:#00F2FE;justify-content:center;">Paso 1 de 4</div>
+      <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px;"><span class="gp">Iniciar Conexión</span><br><span class="gc">Léxica Phygital</span></h2>
+      <p style="font-size:14px;color:rgba(255,255,255,.35);max-width:420px;margin:0 auto;line-height:1.7;">Cuéntanos tu situación. En menos de 24 horas te agendamos una auditoría gratuita y te mostramos la demo de tu sector.</p>
+    </div>
+    <div id="fcontainer">
+      <div class="grid2" style="margin-bottom:18px;" id="frow1">
+        <div><label class="flabel">Nombre completo</label><input type="text" id="f-nom" class="finput" placeholder="Ej. María García"></div>
+        <div><label class="flabel">Nombre del negocio</label><input type="text" id="f-neg" class="finput" placeholder="Ej. Clínica Estética Lumina"></div>
+      </div>
+      <div class="grid2" style="margin-bottom:18px;" id="frow2">
+        <div><label class="flabel">WhatsApp de contacto</label><input type="tel" id="f-tel" class="finput" placeholder="Ej. +502 5555 5555"></div>
+        <div><label class="flabel">Tipo de negocio</label>
+          <select id="f-tipo" class="finput">
+            <option value="">Selecciona tu sector...</option>
+            <option>Clínica / Centro Médico</option>
+            <option>Taller de Vehículos</option>
+            <option>Gimnasio / Fitness</option>
+            <option>Salón de Belleza / Spa</option>
+            <option>Veterinaria / Pet Grooming</option>
+            <option>Restaurante / Cafetería</option>
+            <option>Otro Local Comercial</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:18px;"><label class="flabel">¿Cuál es tu mayor dolor operativo hoy?</label><textarea id="f-msg" class="finput" rows="4" placeholder="Ej: Perdemos citas porque todo lo anotamos en papel..." style="resize:vertical;"></textarea></div>
+      <div style="margin-bottom:30px;">
+        <label class="flabel">Inversión actual en tecnología</label>
+        <div class="grid3" id="presupuestos">
+          <label style="cursor:pointer;"><input type="radio" name="pres" value="ninguno" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Nada ($0)</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="pres" value="bajo" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Algo (&lt;$100/mes)</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="pres" value="algo" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Bastante ($100+)</div></label>
+        </div>
+      </div>
+      <button class="btn-gold" onclick="enviarForm()">Solicitar Auditoría Gratuita →</button>
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.2);margin-top:14px;">Sin spam. Sin compromiso. Respuesta en menos de 24 horas.</p>
+    </div>
+    <div id="fsuccess" style="display:none;text-align:center;padding:40px 0;">
+      <div style="width:72px;height:72px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:10px;">¡Conexión iniciada!</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.4);margin-bottom:26px;line-height:1.7;">Recibimos tu información. En breve abrirá WhatsApp con tu mensaje pre-cargado.</p>
+      <div style="background:rgba(0,242,254,.05);border:1px solid rgba(0,242,254,.1);border-radius:14px;padding:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(0,242,254,.6);text-align:left;">STATUS: AUDITORIA_AGENDADA<br>RESPUESTA_ESTIMADA: &lt; 24h<br>CANAL: WhatsApp_Direct</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer style="border-top:1px solid rgba(255,255,255,.04);background:rgba(5,7,13,.8);padding:48px 24px;">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px;">
+    <div style="height:36px;width:160px;">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="100%" height="100%">
+        <defs>
+          <linearGradient id="cc2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE"/><stop offset="100%" stop-color="#4FACFE"/></linearGradient>
+          <linearGradient id="qg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFDF00"/><stop offset="50%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#846200"/></linearGradient>
+          <linearGradient id="lp2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#6B7280"/></linearGradient>
+          <filter id="ng2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <g transform="translate(20,10)">
+          <path d="M35,60 L65,20 L105,45 L75,85 Z" fill="none" stroke="url(#cc2)" stroke-width="1" opacity=".3" stroke-dasharray="3,3"/>
+          <path d="M65,20 L105,45 L75,85 Z" fill="none" stroke="url(#cc2)" stroke-width="2" filter="url(#ng2)"/>
+          <circle cx="65" cy="20" r="3.5" fill="#00F2FE" filter="url(#ng2)"/><circle cx="105" cy="45" r="3.5" fill="#00F2FE"/><circle cx="75" cy="85" r="3.5" fill="#00F2FE"/>
+          <path d="M35,60 L65,40 L65,75 L35,95 Z" fill="url(#qg2)" opacity=".9"/>
+          <path d="M65,40 L95,60 L95,95 L65,75 Z" fill="url(#qg2)" opacity=".65"/>
+          <path d="M20,50 L65,75 L115,40" fill="none" stroke="#FFFFFF" stroke-width="2.5" filter="url(#ng2)" opacity=".95"/>
+        </g>
+        <text x="160" y="58" font-family="'Montserrat',sans-serif" font-size="38" font-weight="900" fill="url(#lp2)" letter-spacing="8">LÉXICA</text>
+        <text x="160" y="88" font-family="'Montserrat',sans-serif" font-size="13" font-weight="700" fill="url(#cc2)" letter-spacing="12">P H Y G I T A L</text>
+      </svg>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,.2);letter-spacing:.05em;">Sintaxis Digital. Estructura Física.</p>
+    <p style="font-size:11px;color:rgba(255,255,255,.12);">© 2026 LÉXICA PHYGITAL · Guatemala · Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script>
+// ── NAVBAR ──
+(function(){
+  var nav = document.getElementById('navbar');
+  var dn  = document.getElementById('dnav');
+  var mb  = document.getElementById('mbtn');
+  function chk(){
+    if(window.innerWidth>=768){ dn.style.display='flex'; mb.style.display='none'; }
+    else { dn.style.display='none'; mb.style.display='block'; }
+  }
+  chk(); window.addEventListener('resize',chk);
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>60){ nav.style.background='rgba(5,7,13,.95)'; nav.style.backdropFilter='blur(24px)'; nav.style.borderBottom='1px solid rgba(255,255,255,.06)'; }
+    else { nav.style.background='transparent'; nav.style.backdropFilter='none'; nav.style.borderBottom='none'; }
+  });
+  mb.addEventListener('click',function(){ var m=document.getElementById('mmenu'); m.style.display=m.style.display==='none'?'block':'none'; });
+})();
+function closeMob(){ document.getElementById('mmenu').style.display='none'; }
+
+// ── MOBILE GRID FIX ──
+(function(){
+  var hg=document.getElementById('hero-grid');
+  function chk(){ hg.style.gridTemplateColumns=window.innerWidth<900?'1fr':'1fr 1fr'; }
+  chk(); window.addEventListener('resize',chk);
+})();
+
+// ── TICKER ──
+(function(){
+  var items=['✦ Apps web privadas','✦ Automatización WhatsApp','✦ Branding de fachadas','✦ Vinilos premium','✦ Dashboards analíticos','✦ Rotulación 3D','✦ Control de citas','✦ Pago único','✦ Renovación física total','✦ Sin suscripciones','✦ IA generativa','✦ Para PYMEs locales','✦ Demo en vivo'];
+  var t=document.getElementById('ticker');
+  var all=items.concat(items);
+  all.forEach(function(x){ var s=document.createElement('span'); s.textContent=x; s.style.cssText='display:inline-block;padding:0 32px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.22);white-space:nowrap;'; t.appendChild(s); });
+})();
+
+// ── FADE IN ──
+(function(){
+  var els=document.querySelectorAll('.fu');
+  var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting) x.target.classList.add('vis'); }); },{threshold:0.08});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+// ── TILT CARDS ──
+document.querySelectorAll('[data-tilt]').forEach(function(c){
+  c.addEventListener('mousemove',function(e){ var r=c.getBoundingClientRect(),x=((e.clientX-r.left)-r.width/2)/14,y=((r.height/2)-(e.clientY-r.top))/14; c.style.transform='perspective(1000px) rotateX('+y+'deg) rotateY('+x+'deg) scale3d(1.02,1.02,1.02)'; });
+  c.addEventListener('mouseleave',function(){ c.style.transform='perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)'; });
+});
+
+// ── RADIO BUTTONS ──
+document.querySelectorAll('.pradio').forEach(function(r){
+  r.addEventListener('change',function(){
+    document.querySelectorAll('.plabel').forEach(function(l){ l.style.borderColor='rgba(255,255,255,.08)'; l.style.color='rgba(255,255,255,.35)'; l.style.background='transparent'; });
+    var lbl=r.nextElementSibling; lbl.style.borderColor='rgba(0,242,254,.4)'; lbl.style.color='#00F2FE'; lbl.style.background='rgba(0,242,254,.05)';
+  });
+});
+
+// ── FORM ──
+function enviarForm(){
+  var nom=document.getElementById('f-nom').value.trim();
+  var neg=document.getElementById('f-neg').value.trim();
+  var tel=document.getElementById('f-tel').value.trim();
+  var tipo=document.getElementById('f-tipo').value;
+  var msg=document.getElementById('f-msg').value.trim();
+  var pres=document.querySelector('.pradio:checked');
+  if(!nom||!neg||!tel||!tipo){ alert('Por favor completa: Nombre, Negocio, WhatsApp y Tipo de negocio.'); return; }
+  var waNum='50212345678'; // ← CAMBIA POR TU NÚMERO REAL
+  var txt='🚀 *SOLICITUD DE AUDITORÍA LÉXICA PHYGITAL*\n\n👤 *Nombre:* '+nom+'\n🏢 *Negocio:* '+neg+'\n📱 *Tel:* '+tel+'\n📋 *Sector:* '+tipo+(msg?'\n💬 *Mensaje:* '+msg:'')+(pres?'\n💰 *Tech actual:* '+pres.value:'');
+  document.getElementById('fcontainer').style.display='none';
+  document.getElementById('fsuccess').style.display='block';
+  setTimeout(function(){ window.open('https://wa.me/'+waNum+'?text='+encodeURIComponent(txt),'_blank'); },800);
+}
+
+// ── DEMO TABS ──
+function showDemo(name){
+  ['salon','taller','gym'].forEach(function(d){
+    document.getElementById('demo-'+d).style.display=d===name?'block':'none';
+    var t=document.getElementById('tab-'+d);
+    if(d===name){ t.classList.add('act'); } else { t.classList.remove('act'); }
+  });
+}
+
+// ── DEMO SALÓN ──
+var bahias=[
+  {cliente:'Karla Méndez',svc:'Corte + Color',inicio:Date.now()-1000*60*35,min:90,est:'Sofía R.'},
+  {cliente:'',svc:'',inicio:null,min:0,est:''},
+  {cliente:'Ana Lucía',svc:'Keratina',inicio:Date.now()-1000*60*15,min:120,est:'Claudia M.'},
+  {cliente:'',svc:'',inicio:null,min:0,est:''}
+];
+var waLines=[];
+
+function renderSalon(){
+  var g=document.getElementById('s-bahias'); if(!g) return;
+  g.innerHTML=bahias.map(function(b,i){
+    var ocup=b.cliente!=='';
+    var el=ocup?Math.floor((Date.now()-b.inicio)/60000):0;
+    var pct=ocup?Math.min(100,Math.round(el/b.min*100)):0;
+    var c=ocup?'#00F2FE':'#D4AF37';
+    var bg=ocup?'rgba(0,242,254,.06)':'rgba(212,175,55,.04)';
+    var br=ocup?'rgba(0,242,254,.2)':'rgba(212,175,55,.15)';
+    return '<div style="background:'+bg+';border:1px solid '+br+';border-radius:14px;padding:18px;transition:all .3s;">'
+      +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">'
+      +'<span style="font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;">BAHÍA '+(i+1)+'</span>'
+      +'<span style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:50px;background:'+(ocup?'rgba(0,242,254,.1)':'rgba(212,175,55,.1)')+';color:'+c+';">'+(ocup?'OCUPADA':'LIBRE')+'</span>'
+      +'</div>'
+      +(ocup?
+        '<div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:3px;">'+b.cliente+'</div>'
+        +'<div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:2px;">'+b.svc+'</div>'
+        +'<div style="font-size:10px;color:rgba(255,255,255,.25);margin-bottom:12px;">Estilista: '+b.est+'</div>'
+        +'<div class="pbar-wrap" style="margin-bottom:5px;"><div class="pbar" style="width:'+pct+'%;"></div></div>'
+        +'<div style="display:flex;justify-content:space-between;margin-bottom:10px;"><span style="font-size:9px;color:rgba(255,255,255,.25);">'+el+' min</span><span style="font-size:9px;color:#00F2FE;">'+pct+'%</span></div>'
+        +'<button onclick="liberarBahia('+i+')" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:7px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);cursor:pointer;">✓ Marcar Libre</button>'
+        :
+        '<div style="font-size:13px;color:rgba(255,255,255,.2);margin:8px 0 12px;font-style:italic;">Sin cliente asignado</div>'
+        +'<div style="font-size:10px;color:rgba(212,175,55,.5);">↑ Asigna una cita abajo</div>'
+      )
+      +'</div>';
+  }).join('');
+  var cl=document.getElementById('s-clock');
+  if(cl){ var n=new Date(); cl.textContent=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0'); }
+  renderWALog();
+}
+
+function renderWALog(){
+  var wl=document.getElementById('s-walog'); if(!wl) return;
+  if(waLines.length===0) return;
+  wl.innerHTML='<div style="font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:8px;letter-spacing:.08em;">// LOG WhatsApp Automático</div>'
+    +waLines.slice(-5).reverse().map(function(m){ return '<div class="waline">'+m+'</div>'; }).join('');
+}
+
+function asignarBahia(){
+  var cli=document.getElementById('s-cli').value.trim();
+  var svc=document.getElementById('s-svc').value;
+  var idx=parseInt(document.getElementById('s-bahia').value);
+  if(!cli){ alert('Escribe el nombre del cliente'); return; }
+  bahias[idx]={cliente:cli,svc:svc,inicio:Date.now(),min:90,est:'Estilista '+(idx+1)};
+  document.getElementById('s-cli').value='';
+  var n=new Date(); var h=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');
+  waLines.push('['+h+'] ✓ → '+cli+': "Tu cita de '+svc+' está confirmada. ¡Te esperamos!"');
+  renderSalon();
+}
+
+function liberarBahia(i){
+  var nom=bahias[i].cliente;
+  bahias[i]={cliente:'',svc:'',inicio:null,min:0,est:''};
+  var n=new Date(); var h=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');
+  waLines.push('['+h+'] ✓ → '+nom+': "Tu servicio terminó. ¡Gracias! Te esperamos pronto 💛"');
+  renderSalon();
+}
+
+setInterval(renderSalon,30000);
+renderSalon();
+
+// ── DEMO TALLER ──
+var vehiculos=[
+  {placa:'P-847XKL',cliente:'Roberto Soto',modelo:'Toyota Hilux 2022',estado:0},
+  {placa:'M-312BQT',cliente:'Diana Flores',modelo:'Honda CR-V 2020',estado:2},
+  {placa:'C-091ZPR',cliente:'Jorge Méndez',modelo:'Suzuki Swift 2019',estado:4}
+];
+var tEtapas=['Recibido','En diagnóstico','En reparación','Control de calidad','Listo ✓'];
+var tColores=['rgba(255,255,255,.5)','#00F2FE','#D4AF37','#A78BFA','#4ADE80'];
+
+function renderTaller(){
+  var c=document.getElementById('t-vehiculos'); if(!c) return;
+  c.innerHTML=vehiculos.map(function(v,vi){
+    var pct=Math.round(v.estado/4*100);
+    var col=tColores[v.estado];
+    var bars=tEtapas.map(function(_,ei){ return '<div style="flex:1;height:4px;border-radius:2px;background:'+(ei<=v.estado?col:'rgba(255,255,255,.08)')+';transition:background .3s;"></div>'; }).join('');
+    return '<div class="vehicle">'
+      +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;flex-wrap:wrap;gap:8px;">'
+      +'<div><div style="font-family:JetBrains Mono,monospace;font-size:13px;font-weight:700;color:#D4AF37;letter-spacing:.1em;">'+v.placa+'</div><div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;">'+v.cliente+' · '+v.modelo+'</div></div>'
+      +'<span style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:50px;border:1px solid '+col+';color:'+col+';">'+tEtapas[v.estado]+'</span>'
+      +'</div>'
+      +'<div style="display:flex;gap:4px;margin-bottom:10px;">'+bars+'</div>'
+      +'<div style="display:flex;gap:8px;flex-wrap:wrap;">'
+      +(v.estado>0?'<button class="dbtn-sm" onclick="avanzarVeh('+vi+',-1)" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.5);">← Anterior</button>':'')
+      +(v.estado<4?'<button class="dbtn-sm" onclick="avanzarVeh('+vi+',1)" style="background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);color:#D4AF37;">Avanzar → '+tEtapas[v.estado+1]+'</button>':'<span style="font-size:9px;color:#4ADE80;font-weight:700;padding:5px 0;">✓ Notificación enviada al cliente</span>')
+      +'</div></div>';
+  }).join('');
+}
+
+function avanzarVeh(i,d){ vehiculos[i].estado=Math.max(0,Math.min(4,vehiculos[i].estado+d)); renderTaller(); }
+
+function consultarPlaca(){
+  var p=document.getElementById('t-placa').value.trim().toUpperCase();
+  var r=document.getElementById('t-res');
+  var v=null; for(var i=0;i<vehiculos.length;i++){ if(vehiculos[i].placa===p){v=vehiculos[i];break;} }
+  if(v){
+    var pct=Math.round(v.estado/4*100);
+    var col=tColores[v.estado];
+    r.innerHTML='<div style="background:rgba(5,7,13,.8);border:1px solid rgba(212,175,55,.2);border-radius:14px;padding:20px;">'
+      +'<div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:3px;">'+v.modelo+'</div>'
+      +'<div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px;">Cliente: '+v.cliente+'</div>'
+      +'<div class="pbar-wrap" style="margin-bottom:8px;"><div class="pbar pbar-g" style="width:'+pct+'%;"></div></div>'
+      +'<div style="display:flex;justify-content:space-between;"><span style="font-size:13px;font-weight:700;color:'+col+';">'+tEtapas[v.estado]+'</span><span style="font-size:11px;color:rgba(255,255,255,.3);">'+pct+'% completado</span></div>'
+      +'</div>';
+  } else if(p) {
+    r.innerHTML='<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;font-size:13px;color:rgba(255,255,255,.3);">Placa no encontrada. Prueba: P-847XKL · M-312BQT · C-091ZPR</div>';
+  }
+}
+
+renderTaller();
+
+// ── DEMO GYM ──
+var gymAforo=30;
+var GYM_MAX=50;
+var miembros=[
+  {nom:'Carlos Ruiz',plan:'Premium Anual',dias:79},
+  {nom:'Valentina López',plan:'Mensual',dias:-2},
+  {nom:'Miguel Ávila',plan:'Premium Anual',dias:187},
+  {nom:'Sofía Castillo',plan:'Mensual',dias:-5},
+  {nom:'Andrés Morales',plan:'Semestral',dias:115}
+];
+
+function renderGym(){
+  var pct=Math.round(gymAforo/GYM_MAX*100);
+  var bar=document.getElementById('g-bar');
+  var st=document.getElementById('g-status');
+  var af=document.getElementById('g-aforo-txt');
+  if(bar){
+    if(pct>=90){bar.style.background='linear-gradient(90deg,#EF4444,#F87171)';st.style.color='#EF4444';st.textContent='⚠ CASI LLENO';}
+    else if(pct>=70){bar.style.background='linear-gradient(90deg,#F59E0B,#FBBF24)';st.style.color='#F59E0B';st.textContent='CAPACIDAD ALTA';}
+    else{bar.style.background='linear-gradient(90deg,#00F2FE,#4FACFE)';st.style.color='#00F2FE';st.textContent='CAPACIDAD NORMAL';}
+    bar.style.width=pct+'%';
+    af.textContent=gymAforo+'/'+GYM_MAX+' personas';
+  }
+  var mc=document.getElementById('g-members'); if(!mc) return;
+  mc.innerHTML=miembros.map(function(m,mi){
+    var venc=m.dias<0;
+    var prox=m.dias>=0&&m.dias<=7;
+    var bc=venc?'rgba(239,68,68,.1)':prox?'rgba(245,158,11,.1)':'rgba(74,222,128,.1)';
+    var tc=venc?'#EF4444':prox?'#F59E0B':'#4ADE80';
+    var lbl=venc?'VENCIDO':prox?m.dias+'d restantes':'Activo';
+    return '<div class="member">'
+      +'<div style="display:flex;align-items:center;gap:10px;">'
+      +'<div style="width:32px;height:32px;background:'+(venc?'rgba(239,68,68,.1)':'rgba(0,242,254,.08)')+';border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:'+(venc?'#EF4444':'#00F2FE')+';">'+m.nom.charAt(0)+'</div>'
+      +'<div><div style="font-size:12px;font-weight:700;color:#fff;">'+m.nom+'</div><div style="font-size:10px;color:rgba(255,255,255,.3);">'+m.plan+'</div></div>'
+      +'</div>'
+      +'<div style="display:flex;align-items:center;gap:8px;">'
+      +'<span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:50px;background:'+bc+';color:'+tc+';">'+lbl+'</span>'
+      +(venc?'<button class="dbtn-sm" onclick="renovarMiembro('+mi+')" style="background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);color:#00F2FE;">Renovar</button>':'')
+      +'</div></div>';
+  }).join('');
+}
+
+function setAforo(d){ gymAforo=Math.max(0,Math.min(GYM_MAX,gymAforo+d)); renderGym(); }
+function renovarMiembro(i){ miembros[i].dias=30; renderGym(); }
+function renovarTodos(){ miembros.forEach(function(m){ if(m.dias<0) m.dias=30; }); renderGym(); }
+
+renderGym();
+
+// ── THREE.JS ──
+(function(){
+  var cv=document.getElementById('cv3d');
+  if(!cv||typeof THREE==='undefined') return;
+  var scene=new THREE.Scene();
+  var camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,0.1,1000);
+  camera.position.z=48;
+  var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  var g=new THREE.Group(); scene.add(g);
+  // Core
+  var core=new THREE.Mesh(new THREE.IcosahedronGeometry(7,1),new THREE.MeshBasicMaterial({color:0x00F2FE,wireframe:true,transparent:true,opacity:.25})); g.add(core);
+  var inner=new THREE.Mesh(new THREE.OctahedronGeometry(4,0),new THREE.MeshBasicMaterial({color:0xD4AF37,wireframe:true,transparent:true,opacity:.15})); g.add(inner);
+  // Nodes
+  var N=200,pos=new Float32Array(N*3),R=38;
+  for(var i=0;i<N*3;i+=3){var u=Math.random(),v=Math.random(),th=u*2*Math.PI,ph=Math.acos(2*v-1);pos[i]=R*Math.sin(ph)*Math.cos(th);pos[i+1]=R*Math.sin(ph)*Math.sin(th);pos[i+2]=R*Math.cos(ph);}
+  var ng=new THREE.BufferGeometry(); ng.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  g.add(new THREE.Points(ng,new THREE.PointsMaterial({color:0xD4AF37,size:.55,transparent:true,opacity:.7})));
+  // Lines
+  var lp=[];
+  for(var a=0;a<N;a++){for(var b=a+1;b<N;b++){var dx=pos[a*3]-pos[b*3],dy=pos[a*3+1]-pos[b*3+1],dz=pos[a*3+2]-pos[b*3+2];if(Math.sqrt(dx*dx+dy*dy+dz*dz)<11){lp.push(pos[a*3],pos[a*3+1],pos[a*3+2],pos[b*3],pos[b*3+1],pos[b*3+2]);}}}
+  var lg=new THREE.BufferGeometry(); lg.setAttribute('position',new THREE.Float32BufferAttribute(lp,3));
+  var lines=new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0x00F2FE,transparent:true,opacity:.1})); g.add(lines);
+  // Ring
+  var ring=new THREE.Mesh(new THREE.RingGeometry(20,20.6,64),new THREE.MeshBasicMaterial({color:0xD4AF37,side:THREE.DoubleSide,transparent:true,opacity:.07})); ring.rotation.x=Math.PI/3.5; g.add(ring);
+  var ring2=new THREE.Mesh(new THREE.RingGeometry(14,14.4,48),new THREE.MeshBasicMaterial({color:0x00F2FE,side:THREE.DoubleSide,transparent:true,opacity:.08})); ring2.rotation.x=Math.PI/5; ring2.rotation.z=Math.PI/4; g.add(ring2);
+  var sc=0,mx=0,my=0;
+  window.addEventListener('scroll',function(){var el=document.documentElement;sc=el.scrollTop/(el.scrollHeight-el.clientHeight);});
+  window.addEventListener('mousemove',function(e){mx=(e.clientX/window.innerWidth)-.5;my=(e.clientY/window.innerHeight)-.5;});
+  window.addEventListener('resize',function(){camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+  var cl=new THREE.Clock();
+  (function anim(){
+    requestAnimationFrame(anim);
+    var t=cl.getElapsedTime();
+    core.rotation.y=t*.18; core.rotation.x=t*.09;
+    inner.rotation.y=-t*.25; inner.rotation.z=t*.12;
+    lines.rotation.y=t*.04; ring.rotation.z=-t*.08; ring2.rotation.y=t*.12;
+    g.rotation.y=sc*Math.PI*1.5; g.rotation.x=sc*Math.PI*.4;
+    camera.position.z=48-sc*22; camera.position.y=sc*8;
+    g.position.x+=(mx*5-g.position.x)*.04;
+    g.position.y+=(-my*5-g.position.y)*.04;
+    renderer.render(scene,camera);
+  })();
+})();
+</script>
+</body>
+</html>

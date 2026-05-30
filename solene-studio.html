@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLÈNE Studio | Belleza que ilumina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#0A0806;--bg2:#110E09;--gold:#B8965A;--gold2:#D4B483;--cream:#FAF7F2;--soft:rgba(250,247,242,.78);--border:rgba(184,150,90,.15);}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--cream);font-family:'Lato',sans-serif;overflow-x:hidden;cursor:none;}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;}
+.cursor-trail{position:fixed;width:32px;height:32px;border:1px solid rgba(184,150,90,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .25s ease;}
+.cursor-trail.hover{transform:translate(-50%,-50%) scale(2);border-color:rgba(184,150,90,.7);}
+
+/* CANVAS BACKGROUND */
+#bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.5;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:28px 60px;display:flex;align-items:center;justify-content:space-between;mix-blend-mode:normal;background:linear-gradient(to bottom,rgba(10,8,6,.9),transparent);transition:background .4s;}
+nav.scrolled{background:rgba(10,8,6,.95);backdrop-filter:blur(20px);}
+.nav-links{display:flex;gap:44px;list-style:none;}
+.nav-links a{font-size:12px;letter-spacing:.12em;text-transform:capitalize;color:rgba(250,247,242,0.8);text-decoration:none;transition:color .3s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:12px 28px;border:1px solid var(--border);color:var(--gold);text-decoration:none;transition:all .3s;}
+.nav-cta:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;position:relative;z-index:1;}
+.hero-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:none;font-style:italic;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:16px;opacity:0;animation:fadeUp .8s .3s forwards;}
+.hero-eyebrow::before{content:'';width:48px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(64px,10vw,148px);font-weight:300;line-height:.95;letter-spacing:-.02em;margin-bottom:40px;}
+.hero-title .line{display:block;overflow:hidden;}
+.hero-title .word{display:inline-block;transform:translateY(110%);opacity:0;animation:slideUp .9s cubic-bezier(.16,1,.3,1) forwards;}
+.hero-title .word.d1{animation-delay:.1s;}
+.hero-title .word.d2{animation-delay:.22s;}
+.hero-title .word.d3{animation-delay:.34s;}
+.hero-title .word.d4{animation-delay:.46s;}
+.hero-title em{font-style:italic;color:var(--gold);}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;opacity:0;animation:fadeUp .8s .7s forwards;}
+.hero-sub{font-size:14px;color:var(--soft);line-height:1.8;max-width:360px;font-weight:300;}
+.hero-btns{display:flex;gap:16px;}
+.btn-gold{font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:15px 34px;background:var(--gold);color:var(--bg);text-decoration:none;transition:all .3s;font-weight:600;}
+.btn-gold:hover{background:var(--gold2);}
+.btn-ghost{font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:15px 28px;border:1px solid rgba(250,247,242,.15);color:rgba(250,247,242,.6);text-decoration:none;transition:all .3s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-scroll{position:absolute;bottom:40px;right:60px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.4;}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold));animation:scrollLine 2s ease-in-out infinite;}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+.scroll-txt{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);writing-mode:vertical-rl;}
+
+/* MARQUEE */
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden;position:relative;z-index:1;background:var(--bg);}
+.marquee-track{display:flex;animation:marq 30s linear infinite;white-space:nowrap;}
+.m-item{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(250,247,242,0.6799999999999999);padding:0 40px;flex-shrink:0;}
+.m-item.gold{color:var(--gold);opacity:.6;}
+@keyframes marq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SERVICES */
+.services{padding:120px 60px;position:relative;z-index:1;}
+.sec-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px;font-style:italic;}
+.sec-eyebrow::before{content:'';width:36px;height:1px;background:var(--gold);}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(38px,5vw,66px);font-weight:300;line-height:1.05;margin-bottom:70px;}
+.sec-title em{font-style:italic;color:var(--gold);}
+.svc-list{display:flex;flex-direction:column;}
+.svc-row{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:40px;padding:28px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:all .35s;position:relative;overflow:hidden;}
+.svc-row::before{content:'';position:absolute;left:0;top:0;width:0;height:100%;background:rgba(184,150,90,.04);transition:width .4s ease;}
+.svc-row:hover::before{width:100%;}
+.svc-row:hover .svc-name{color:var(--gold);}
+.svc-row:hover .svc-arrow{transform:translate(5px,-5px);}
+.svc-num{font-family:'Playfair Display',serif;font-size:15px;color:rgba(184,150,90,0.78);font-weight:400;}
+.svc-name{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,34px);font-weight:300;transition:color .35s;}
+.svc-meta{display:flex;align-items:center;gap:32px;}
+.svc-price{font-size:12px;color:var(--soft);letter-spacing:.08em;}
+.svc-arrow{font-size:18px;color:var(--gold);transition:transform .35s;opacity:.6;}
+
+/* GALLERY EDITORIAL */
+.gallery{padding:0 60px 120px;position:relative;z-index:1;}
+.gallery-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:380px 280px;gap:14px;}
+.g-img{overflow:hidden;position:relative;}
+.g-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(20%) brightness(.9);transition:all .6s ease;}
+.g-img:hover img{transform:scale(1.04);filter:grayscale(0%) brightness(1);}
+.g-img:first-child{grid-row:1/3;}
+.g-label{position:absolute;bottom:16px;left:16px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(250,247,242,0.8);background:rgba(10,8,6,.6);padding:6px 12px;backdrop-filter:blur(8px);}
+
+/* ABOUT */
+.about{padding:120px 60px;position:relative;z-index:1;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1400px;margin:0 auto;}
+.about-left{position:relative;}
+.about-img-main{width:100%;height:560px;object-fit:cover;display:block;filter:brightness(.85);}
+.about-stat-box{position:absolute;bottom:-24px;right:-24px;background:var(--gold);padding:28px 32px;}
+.asb-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:300;color:var(--bg);line-height:1;}
+.asb-lbl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(10,8,6,.65);margin-top:4px;}
+.about-right .sec-title{margin-bottom:28px;}
+.about-text{font-size:14px;color:var(--soft);line-height:1.9;font-weight:300;margin-bottom:20px;}
+.about-quote{border-left:2px solid var(--gold);padding-left:24px;font-family:'Playfair Display',serif;font-size:21px;font-style:italic;color:var(--gold2);line-height:1.6;margin-top:36px;}
+
+/* PROCESO */
+.proceso{padding:120px 60px;border-top:1px solid var(--border);position:relative;z-index:1;}
+.proceso-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:70px;}
+.paso{background:var(--bg2);padding:40px 32px;border:1px solid var(--border);transition:all .4s;position:relative;overflow:hidden;}
+.paso::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .45s;}
+.paso:hover::after{width:100%;}
+.paso:hover{background:rgba(184,150,90,.04);}
+.paso-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:300;color:rgba(184,150,90,0.53);margin-bottom:20px;line-height:1;}
+.paso-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--cream);margin-bottom:14px;font-weight:300;}
+.paso-desc{font-size:13px;color:var(--soft);line-height:1.75;}
+
+/* BOOKING */
+.booking{padding:120px 60px;position:relative;z-index:1;}
+.booking-inner{max-width:720px;margin:0 auto;}
+.booking-inner .sec-title{margin-bottom:16px;}
+.booking-sub{font-size:14px;color:var(--soft);margin-bottom:48px;line-height:1.8;font-weight:300;}
+.bform{display:flex;flex-direction:column;gap:14px;}
+.brow{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.bg label{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,247,242,0.73);margin-bottom:8px;}
+.bg input,.bg select,.bg textarea{width:100%;padding:14px 18px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-family:'Lato',sans-serif;font-size:13px;color:var(--cream);outline:none;transition:border-color .3s;}
+.bg input:focus,.bg select:focus,.bg textarea:focus{border-color:var(--gold);}
+.bg select option{background:var(--bg2);}
+.bg textarea{resize:none;height:90px;}
+.bsubmit{padding:16px;background:var(--gold);color:var(--bg);border:none;font-family:'Lato',sans-serif;font-size:10px;letter-spacing:.28em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-weight:700;margin-top:8px;}
+.bsubmit:hover{background:var(--gold2);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:52px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;z-index:1;}
+.f-copy{font-size:11px;color:rgba(250,247,242,0.5800000000000001);letter-spacing:.08em;}
+.f-links{display:flex;gap:28px;}
+.f-links a{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,247,242,0.5800000000000001);text-decoration:none;transition:color .3s;}
+.f-links a:hover{color:var(--gold);}
+.f-made{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.f-made-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,247,242,0.53);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes slideUp{from{transform:translateY(110%);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.reveal{opacity:0;transform:translateY(28px);transition:all .8s cubic-bezier(.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:all .8s cubic-bezier(.16,1,.3,1);}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+
+@media(max-width:768px){
+  nav{padding:18px 24px;}.nav-links{display:none;}
+  .hero{padding:0 24px 70px;}
+  .hero-title{font-size:clamp(52px,14vw,80px);}
+  .hero-scroll{display:none;}
+  .services,.gallery,.about,.proceso,.booking{padding:80px 24px;}
+  .gallery-grid{grid-template-columns:1fr;grid-template-rows:280px 200px 200px;}
+  .g-img:first-child{grid-row:auto;}
+  .about-grid{grid-template-columns:1fr;gap:40px;}
+  .proceso-grid{grid-template-columns:1fr 1fr;gap:2px;}
+  .brow{grid-template-columns:1fr;}
+  footer{padding:36px 24px;flex-direction:column;gap:14px;}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+<canvas id="bg-canvas"></canvas>
+
+<nav id="navbar">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="190" height="36">
+    <defs><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D4B483"/><stop offset="100%" stop-color="#B8965A"/></linearGradient></defs>
+    <ellipse cx="28" cy="20" rx="14" ry="7" fill="none" stroke="url(#sg)" stroke-width="1.5"/>
+    <ellipse cx="28" cy="40" rx="14" ry="7" fill="none" stroke="url(#sg)" stroke-width="1.5"/>
+    <line x1="28" y1="13" x2="28" y2="47" stroke="url(#sg)" stroke-width="1" opacity=".4"/>
+    <text x="56" y="30" font-family="Playfair Display,serif" font-size="26" font-weight="300" fill="#FAF7F2" letter-spacing="6">SOLÈNE</text>
+    <text x="57" y="48" font-family="Jost,sans-serif" font-size="9" font-weight="400" fill="#B8965A" letter-spacing="10">STUDIO</text>
+  </svg>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotras">Nosotras</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#reservar">Reservar</a></li>
+  </ul>
+  <a href="#reservar" class="nav-cta">Reservar cita</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-eyebrow">Estudio de belleza premium · Guatemala</div>
+  <h1 class="hero-title">
+    <span class="line"><span class="word d1">Donde</span> <span class="word d2">la</span></span>
+    <span class="line"><span class="word d3"><em>luz</em></span></span>
+    <span class="line"><span class="word d4">ilumina.</span></span>
+  </h1>
+  <div class="hero-bottom">
+    <p class="hero-sub">Experiencias de belleza diseñadas para revelar tu luminosidad natural. Cada servicio, una obra de arte pensada solo para ti.</p>
+    <div class="hero-btns">
+      <a href="#reservar" class="btn-gold">Agendar cita</a>
+      <a href="#servicios" class="btn-ghost">Ver servicios ↓</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-txt">scroll</span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item">Corte & Color</span><span class="m-item gold">✦</span>
+    <span class="m-item">Keratina Premium</span><span class="m-item gold">✦</span>
+    <span class="m-item">Tratamientos Capilares</span><span class="m-item gold">✦</span>
+    <span class="m-item">Manicure & Pedicure</span><span class="m-item gold">✦</span>
+    <span class="m-item">Maquillaje Artístico</span><span class="m-item gold">✦</span>
+    <span class="m-item">Cejas & Pestañas</span><span class="m-item gold">✦</span>
+    <span class="m-item">Rituales de Spa</span><span class="m-item gold">✦</span>
+    <span class="m-item">Corte & Color</span><span class="m-item gold">✦</span>
+    <span class="m-item">Keratina Premium</span><span class="m-item gold">✦</span>
+    <span class="m-item">Tratamientos Capilares</span><span class="m-item gold">✦</span>
+    <span class="m-item">Manicure & Pedicure</span><span class="m-item gold">✦</span>
+    <span class="m-item">Maquillaje Artístico</span><span class="m-item gold">✦</span>
+    <span class="m-item">Cejas & Pestañas</span><span class="m-item gold">✦</span>
+    <span class="m-item">Rituales de Spa</span><span class="m-item gold">✦</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="reveal"><div class="sec-eyebrow">Servicios</div>
+  <h2 class="sec-title">Lo que hacemos<br><em>diferente.</em></h2></div>
+  <div class="svc-list">
+    <div class="svc-row reveal"><span class="svc-num">01</span><span class="svc-name">Corte & Coloración</span><div class="svc-meta"><span class="svc-price">Desde Q350</span><span class="svc-arrow">↗</span></div></div>
+    <div class="svc-row reveal"><span class="svc-num">02</span><span class="svc-name">Tratamientos Premium</span><div class="svc-meta"><span class="svc-price">Desde Q550</span><span class="svc-arrow">↗</span></div></div>
+    <div class="svc-row reveal"><span class="svc-num">03</span><span class="svc-name">Manos & Pies</span><div class="svc-meta"><span class="svc-price">Desde Q180</span><span class="svc-arrow">↗</span></div></div>
+    <div class="svc-row reveal"><span class="svc-num">04</span><span class="svc-name">Maquillaje Artístico</span><div class="svc-meta"><span class="svc-price">Desde Q450</span><span class="svc-arrow">↗</span></div></div>
+    <div class="svc-row reveal"><span class="svc-num">05</span><span class="svc-name">Cejas & Pestañas</span><div class="svc-meta"><span class="svc-price">Desde Q220</span><span class="svc-arrow">↗</span></div></div>
+    <div class="svc-row reveal"><span class="svc-num">06</span><span class="svc-name">Rituales de Spa</span><div class="svc-meta"><span class="svc-price">Desde Q280</span><span class="svc-arrow">↗</span></div></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-grid">
+    <div class="g-img reveal-left"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&q=85&fit=crop" alt="Salon"><div class="g-label">Nuestro espacio</div></div>
+    <div class="g-img reveal"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=85&fit=crop" alt="Color"><div class="g-label">Coloración</div></div>
+    <div class="g-img reveal"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=85&fit=crop" alt="Nails"><div class="g-label">Nail Art</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotras">
+  <div class="about-grid">
+    <div class="about-left reveal-left">
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=700&q=85&fit=crop" alt="Nosotras">
+      <div class="about-stat-box"><div class="asb-num">8+</div><div class="asb-lbl">Años de arte</div></div>
+    </div>
+    <div class="about-right reveal">
+      <div class="sec-eyebrow">Nuestra filosofía</div>
+      <h2 class="sec-title">Más de 8 años<br>iluminando<br><em>historias únicas.</em></h2>
+      <p class="about-text">En SOLÈNE Studio creemos que la belleza no se impone — se revela. Cada clienta que entra por nuestra puerta lleva consigo una historia, y nuestro rol es encontrar la luz que la hace inconfundible.</p>
+      <p class="about-text">Nuestro equipo combina formación internacional con sensibilidad artística local. Cada detalle del espacio está pensado para que el tiempo con nosotras sea una experiencia, no solo un servicio.</p>
+      <div class="about-quote">"La luminosidad no viene de afuera. La descubrimos juntas."</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="proceso" id="proceso">
+  <div class="reveal"><div class="sec-eyebrow">Cómo trabajamos</div>
+  <h2 class="sec-title">Tu experiencia en<br><em>4 pasos.</em></h2></div>
+  <div class="proceso-grid">
+    <div class="paso reveal"><div class="paso-num">01</div><div class="paso-title">Consulta & Escucha</div><div class="paso-desc">Iniciamos con una conversación tranquila para entender tus objetivos y qué buscas lograr.</div></div>
+    <div class="paso reveal"><div class="paso-num">02</div><div class="paso-title">Diagnóstico Experto</div><div class="paso-desc">Analizamos tu cabello, piel y necesidades específicas para diseñar la solución exacta.</div></div>
+    <div class="paso reveal"><div class="paso-num">03</div><div class="paso-title">Transformación</div><div class="paso-desc">Aplicamos técnicas avanzadas con productos de lujo. Cada servicio, hecho con precisión artística.</div></div>
+    <div class="paso reveal"><div class="paso-num">04</div><div class="paso-title">Ritual de Cuidado</div><div class="paso-desc">Te enseñamos cómo mantener tu belleza en casa. Recomendaciones y seguimiento sin costo.</div></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="reservar">
+  <div class="booking-inner">
+    <div class="reveal"><div class="sec-eyebrow">Agenda</div>
+    <h2 class="sec-title">Tu cita,<br><em>a un paso.</em></h2>
+    <p class="booking-sub">Reserva tu espacio y recibe confirmación en menos de 2 horas por WhatsApp.</p></div>
+    <div class="bform reveal">
+      <div class="brow">
+        <div class="bg"><label>Nombre</label><input type="text" placeholder="Ej. María González"></div>
+        <div class="bg"><label>WhatsApp</label><input type="tel" placeholder="+502 5555 5555"></div>
+      </div>
+      <div class="brow">
+        <div class="bg"><label>Servicio</label>
+          <select><option>Corte & Coloración</option><option>Tratamientos Premium</option><option>Manos & Pies</option><option>Maquillaje</option><option>Cejas & Pestañas</option><option>Ritual de Spa</option></select>
+        </div>
+        <div class="bg"><label>Fecha preferida</label><input type="date"></div>
+      </div>
+      <div class="bg"><label>Mensaje</label><textarea placeholder="Cuéntanos más sobre lo que buscas..."></textarea></div>
+      <button class="bsubmit" onclick="sendWA()">Reservar por WhatsApp →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="160" height="28">
+    <defs><linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D4B483"/><stop offset="100%" stop-color="#B8965A"/></linearGradient></defs>
+    <ellipse cx="28" cy="20" rx="14" ry="7" fill="none" stroke="url(#fg)" stroke-width="1.5"/>
+    <ellipse cx="28" cy="40" rx="14" ry="7" fill="none" stroke="url(#fg)" stroke-width="1.5"/>
+    <line x1="28" y1="13" x2="28" y2="47" stroke="url(#fg)" stroke-width="1" opacity=".4"/>
+    <text x="56" y="28" font-family="Playfair Display,serif" font-size="20" font-weight="300" fill="#FAF7F2" letter-spacing="5">SOLÈNE</text>
+    <text x="57" y="44" font-family="Jost,sans-serif" font-size="8" fill="#B8965A" letter-spacing="8">STUDIO</text>
+  </svg>
+  <div class="f-links"><a href="#servicios">Servicios</a><a href="#nosotras">Nosotras</a><a href="#proceso">Proceso</a><a href="#reservar">Reservar</a></div>
+  <div class="f-made">
+    <div class="f-copy">© 2026 SOLÈNE Studio · Todos los derechos reservados</div>
+    <div class="f-made-label">DISEÑADO & DESARROLLADO POR</div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="200" height="40">
+      <defs>
+        <linearGradient id="fcc" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE"/><stop offset="100%" stop-color="#4FACFE"/></linearGradient>
+        <linearGradient id="fqg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFDF00"/><stop offset="50%" stop-color="#D4AF37"/><stop offset="100%" stop-color="#846200"/></linearGradient>
+        <linearGradient id="flp" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#6B7280"/></linearGradient>
+        <filter id="fng"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <g transform="translate(20,10)">
+        <path d="M35,60 L65,20 L105,45 L75,85 Z" fill="none" stroke="url(#fcc)" stroke-width="1" opacity=".3" stroke-dasharray="3,3"/>
+        <path d="M65,20 L105,45 L75,85 Z" fill="none" stroke="url(#fcc)" stroke-width="2" filter="url(#fng)"/>
+        <circle cx="65" cy="20" r="3.5" fill="#00F2FE" filter="url(#fng)"/>
+        <circle cx="105" cy="45" r="3.5" fill="#00F2FE"/>
+        <circle cx="75" cy="85" r="3.5" fill="#00F2FE"/>
+        <path d="M35,60 L65,40 L65,75 L35,95 Z" fill="url(#fqg)" opacity=".9"/>
+        <path d="M65,40 L95,60 L95,95 L65,75 Z" fill="url(#fqg)" opacity=".65"/>
+        <path d="M20,50 L65,75 L115,40" fill="none" stroke="#FFFFFF" stroke-width="2.5" filter="url(#fng)" opacity=".95"/>
+      </g>
+      <text x="160" y="58" font-family="Montserrat,sans-serif" font-size="38" font-weight="900" fill="url(#flp)" letter-spacing="8">LÉXICA</text>
+      <text x="160" y="88" font-family="Montserrat,sans-serif" font-size="13" font-weight="700" fill="url(#fcc)" letter-spacing="12">P H Y G I T A L</text>
+    </svg>
+  </div>
+</footer>
+
+<script>
+// CUSTOM CURSOR
+const cur=document.getElementById('cursor'),trail=document.getElementById('cursorTrail');
+let mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animTrail(){tx+=(mx-tx)*.1;ty+=(my-ty)*.1;trail.style.left=tx+'px';trail.style.top=ty+'px';requestAnimationFrame(animTrail);})();
+document.querySelectorAll('a,button,.svc-row').forEach(el=>{
+  el.addEventListener('mouseenter',()=>trail.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>trail.classList.remove('hover'));
+});
+
+// CANVAS BACKGROUND — subtle floating gold particles + petals
+(function(){
+  const c=document.getElementById('bg-canvas'),ctx=c.getContext('2d');
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  const pts=[];
+  const PETAL_PATH=(ctx,x,y,w,h,a)=>{ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.beginPath();ctx.ellipse(0,0,w/2,h/2,0,0,Math.PI*2);ctx.restore();};
+  for(let i=0;i<55;i++){
+    pts.push({
+      x:Math.random()*window.innerWidth,
+      y:Math.random()*window.innerHeight,
+      size:Math.random()*3+1,
+      vx:(Math.random()-.5)*.3,
+      vy:(Math.random()-.5)*.2,
+      rot:Math.random()*Math.PI*2,
+      rotV:(Math.random()-.5)*.008,
+      isPetal:Math.random()>.6,
+      w:Math.random()*8+4,
+      h:Math.random()*18+8,
+      op:Math.random()*.25+.05
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.rot+=p.rotV;
+      if(p.x<-20)p.x=c.width+20;if(p.x>c.width+20)p.x=-20;
+      if(p.y<-20)p.y=c.height+20;if(p.y>c.height+20)p.y=-20;
+      if(p.isPetal){
+        ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);
+        ctx.beginPath();ctx.ellipse(0,0,p.w/2,p.h/2,0,0,Math.PI*2);
+        ctx.fillStyle=`rgba(184,150,90,${p.op})`;ctx.fill();ctx.restore();
+      } else {
+        ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fillStyle=`rgba(212,180,131,${p.op})`;ctx.fill();
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// NAVBAR SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>80);
+});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal,.reveal-left').forEach(el=>obs.observe(el));
+
+// WHATSAPP
+function sendWA(){
+  const n=document.querySelector('input[placeholder="Ej. María González"]').value||'(sin nombre)';
+  const s=document.querySelector('select').value;
+  window.open('https://wa.me/50200000000?text='+encodeURIComponent(`Hola SOLÈNE Studio! Soy ${n} y quisiera reservar: ${s}. ¿Tienen disponibilidad?`));
+}
+</script>
+</body>
+</html>

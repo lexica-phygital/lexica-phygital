@@ -13,26 +13,26 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:#05070D;color:#F3F4F6;font-family:'Montserrat',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
- 
+
 /* Scanlines */
 body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,242,254,0.012) 2px,rgba(0,242,254,0.012) 4px);pointer-events:none;z-index:1;}
- 
+
 /* Gradients */
 .gc{background:linear-gradient(135deg,#00F2FE,#4FACFE);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .gg{background:linear-gradient(135deg,#FFDF00,#D4AF37,#AA7C11);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .gp{background:linear-gradient(135deg,#fff,#9CA3AF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
- 
+
 /* Glass */
 .glass{background:rgba(11,15,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.07);}
- 
+
 /* Buttons */
 .btn-cyan{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:15px 36px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(135deg,#00F2FE,#4FACFE);color:#050810;text-decoration:none;overflow:hidden;transition:all .3s;}
 .btn-cyan:hover{box-shadow:0 0 30px rgba(0,242,254,.5);transform:translateY(-1px);}
 .btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:14px 36px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);color:#F3F4F6;text-decoration:none;transition:all .3s;}
-.btn-outline:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.04);}
+.btn-outline:hover{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.04);}
 .btn-gold{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:15px 36px;border-radius:12px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:linear-gradient(135deg,#FFDF00,#D4AF37);color:#0B0F1A;border:none;cursor:pointer;transition:all .3s;}
 .btn-gold:hover{box-shadow:0 0 30px rgba(212,175,55,.5);transform:translateY(-1px);}
- 
+
 /* Service cards */
 .svc-card{padding:40px 36px;border-radius:20px;border:1px solid rgba(255,255,255,.05);background:rgba(11,15,26,.5);backdrop-filter:blur(16px);transition:all .4s;transform-style:preserve-3d;position:relative;overflow:hidden;}
 .svc-card::before{content:'';position:absolute;inset:0;border-radius:20px;opacity:0;transition:opacity .4s;}
@@ -40,94 +40,94 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 .svc-card.cg::before{background:radial-gradient(ellipse at 30% 0%,rgba(212,175,55,.08),transparent 60%);}
 .svc-card:hover::before{opacity:1;}
 .svc-card:hover{transform:translateY(-6px);}
-.svc-card.cc:hover{border-color:rgba(0,242,254,.2);}
-.svc-card.cg:hover{border-color:rgba(212,175,55,.2);}
- 
+.svc-card.cc:hover{border-color:rgba(0,242,254,0.55);}
+.svc-card.cg:hover{border-color:rgba(212,175,55,0.55);}
+
 /* Labels */
 .slabel{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;}
 .slabel::before{content:'//';font-family:'JetBrains Mono',monospace;}
- 
+
 /* Tag pills */
 .tag-c{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(0,242,254,.08);color:#00F2FE;border:1px solid rgba(0,242,254,.15);padding:5px 12px;border-radius:50px;}
 .tag-g{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(212,175,55,.08);color:#D4AF37;border:1px solid rgba(212,175,55,.15);padding:5px 12px;border-radius:50px;}
- 
+
 /* Ticker */
 .ticker-track{display:flex;gap:0;animation:ticker 35s linear infinite;width:max-content;}
 @keyframes ticker{to{transform:translateX(-50%);}}
- 
+
 /* Fade up */
 .fu{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
 .fu.vis{opacity:1;transform:translateY(0);}
- 
+
 /* Pulse */
 @keyframes pulseC{0%,100%{box-shadow:0 0 0 0 rgba(0,242,254,.4);}50%{box-shadow:0 0 0 10px rgba(0,242,254,0);}}
 .pdot{animation:pulseC 2s infinite;}
- 
+
 /* Cursor blink */
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 .cur{display:inline-block;width:2px;height:16px;background:#00F2FE;animation:blink .6s infinite;vertical-align:middle;margin-left:2px;}
- 
+
 /* Terminal */
 .terminal{background:#020408;border:1px solid rgba(0,242,254,.15);border-radius:16px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;}
 .t-bar{background:rgba(0,242,254,.05);padding:12px 20px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(0,242,254,.08);}
 .tdot{width:10px;height:10px;border-radius:50%;}
 .t-body{padding:24px;line-height:1.9;}
 .tc{color:#00F2FE;}.tg{color:#D4AF37;}.tw{color:#F3F4F6;}.tm{color:#6B7280;}.ts{color:#4ADE80;}
- 
+
 /* Process line */
 .pline{position:relative;}
 .pline::before{content:'';position:absolute;left:23px;top:48px;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(0,242,254,.3),transparent);}
- 
+
 /* Form */
 .finput{width:100%;background:rgba(5,7,12,.8);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 18px;font-size:14px;color:#F3F4F6;font-family:'Montserrat',sans-serif;transition:all .3s;outline:none;}
-.finput::placeholder{color:rgba(255,255,255,.2);}
+.finput::placeholder{color:rgba(255,255,255,0.55);}
 .finput:focus{border-color:rgba(0,242,254,.5);box-shadow:0 0 0 3px rgba(0,242,254,.08);}
 select.finput{color:rgba(255,255,255,.5);cursor:pointer;}
 select.finput option{background:#0B0F1A;color:#F3F4F6;}
-.flabel{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;}
- 
+.flabel{display:block;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:8px;}
+
 /* Demo app styles */
 .app-header{background:rgba(0,242,254,.05);border-bottom:1px solid rgba(0,242,254,.1);padding:14px 22px;display:flex;align-items:center;gap:12px;}
 .app-dot{width:8px;height:8px;background:#00F2FE;border-radius:50%;box-shadow:0 0 8px #00F2FE;}
 .app-dot-g{width:8px;height:8px;background:#D4AF37;border-radius:50%;box-shadow:0 0 8px #D4AF37;}
 .app-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;}
- 
+
 /* Demo tab */
-.dtab{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 20px;border-radius:50px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s;}
+.dtab{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:10px 20px;border-radius:50px;border:1px solid rgba(255,255,255,.1);background:transparent;color:rgba(255,255,255,.65);cursor:pointer;transition:all .2s;}
 .dtab.act{border-color:rgba(0,242,254,.5);background:rgba(0,242,254,.1);color:#00F2FE;}
-.dtab:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7);}
- 
+.dtab:hover{border-color:rgba(255,255,255,.6);color:rgba(255,255,255,.7);}
+
 /* Demo input */
 .dinput{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:9px 12px;font-size:12px;color:#fff;font-family:'Montserrat',sans-serif;outline:none;transition:border .2s;}
-.dinput:focus{border-color:rgba(0,242,254,.4);}
+.dinput:focus{border-color:rgba(0,242,254,.65);}
 .dselect{background:#0B0F1A;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:9px 12px;font-size:12px;color:rgba(255,255,255,.7);font-family:'Montserrat',monospace;outline:none;}
 .dbtn-c{background:linear-gradient(135deg,#00F2FE,#4FACFE);color:#050810;border:none;border-radius:8px;padding:10px 18px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
 .dbtn-g{background:linear-gradient(135deg,#FFDF00,#D4AF37);color:#0B0F1A;border:none;border-radius:10px;padding:12px 22px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;}
 .dbtn-sm{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:6px;cursor:pointer;}
- 
+
 /* Bahia card */
 .bahia{background:rgba(5,7,13,.7);border:1px solid rgba(0,242,254,.12);border-radius:14px;padding:18px;transition:all .3s;}
-.bahia.libre{border-color:rgba(212,175,55,.12);}
- 
+.bahia.libre{border-color:rgba(212,175,55,0.47);}
+
 /* Progress bar */
 .pbar-wrap{background:rgba(5,7,13,.8);border-radius:8px;height:6px;overflow:hidden;border:1px solid rgba(255,255,255,.05);}
 .pbar{height:100%;border-radius:8px;transition:width .6s ease;background:linear-gradient(90deg,#00F2FE,#4FACFE);}
 .pbar-g{background:linear-gradient(90deg,#D4AF37,#FFDF00);}
- 
+
 /* Vehicle card */
 .vehicle{background:rgba(5,7,13,.7);border:1px solid rgba(212,175,55,.1);border-radius:14px;padding:18px;margin-bottom:10px;}
- 
+
 /* Member row */
 .member{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:10px;margin-bottom:8px;flex-wrap:wrap;gap:8px;}
- 
+
 /* Aforo bar */
 .abar-wrap{background:rgba(5,7,13,.8);border-radius:12px;height:12px;overflow:hidden;border:1px solid rgba(255,255,255,.06);}
 .abar{height:100%;border-radius:12px;transition:width .4s ease,background .4s;}
- 
+
 /* WA log */
 .walog{background:rgba(5,7,13,.8);border:1px solid rgba(212,175,55,.1);border-radius:14px;padding:16px;max-height:110px;overflow-y:auto;margin:0 24px 24px;}
-.waline{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);}
- 
+.waline{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.65);padding:3px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+
 /* Grid helpers */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
@@ -140,25 +140,25 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
   .grid3{grid-template-columns:1fr 1fr;}
   .salon-form-row{grid-template-columns:1fr 1fr!important;}
 }
- 
+
 /* Scrollbar */
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:#05070D;}
 ::-webkit-scrollbar-thumb{background:rgba(0,242,254,.3);border-radius:2px;}
- 
+
 /* Cyber grid bg on section */
 .cgrid{background-image:linear-gradient(rgba(0,242,254,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,242,254,.03) 1px,transparent 1px);background-size:60px 60px;}
- 
+
 section{position:relative;z-index:10;}
 header{position:relative;z-index:100;}
 footer{position:relative;z-index:10;}
 </style>
 </head>
 <body>
- 
+
 <!-- 3D CANVAS -->
 <canvas id="cv3d" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.6;"></canvas>
- 
+
 <!-- ══════════ NAVBAR ══════════ -->
 <header id="navbar" style="position:fixed;top:0;left:0;width:100%;z-index:100;transition:all .4s;">
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;">
@@ -189,6 +189,7 @@ footer{position:relative;z-index:10;}
       <a href="#servicios" class="navlink">Servicios</a>
       <a href="#proceso"   class="navlink">Proceso</a>
       <a href="#demos"     class="navlink">Demos</a>
+      <a href="#planes"    class="navlink">Planes</a>
       <a href="#contacto"  class="navlink-btn">Auditoría Gratis</a>
     </nav>
     <button id="mbtn" style="display:block;background:none;border:none;cursor:pointer;padding:8px;color:rgba(255,255,255,.7);" aria-label="Menú">
@@ -200,10 +201,11 @@ footer{position:relative;z-index:10;}
     <a href="#servicios" onclick="closeMob()" class="mmlink">Servicios</a>
     <a href="#proceso"   onclick="closeMob()" class="mmlink">Proceso</a>
     <a href="#demos"     onclick="closeMob()" class="mmlink">Demos</a>
+    <a href="#planes"    onclick="closeMob()" class="mmlink">Planes</a>
     <a href="#contacto"  onclick="closeMob()" style="display:block;margin-top:14px;text-align:center;padding:14px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00F2FE;border:1px solid rgba(0,242,254,.4);border-radius:50px;text-decoration:none;">Auditoría Gratis</a>
   </div>
 </header>
- 
+
 <style>
 .navlink{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
 .navlink:hover{color:#00F2FE;}
@@ -211,7 +213,7 @@ footer{position:relative;z-index:10;}
 .navlink-btn:hover{background:rgba(0,242,254,.08);box-shadow:0 0 20px rgba(0,242,254,.2);}
 .mmlink{display:block;padding:12px 0;font-size:14px;font-weight:600;color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.04);}
 </style>
- 
+
 <!-- ══════════ HERO ══════════ -->
 <section id="inicio" style="min-height:100vh;display:flex;align-items:center;padding:120px 24px 80px;">
   <div style="max-width:1280px;margin:0 auto;width:100%;">
@@ -229,7 +231,7 @@ footer{position:relative;z-index:10;}
           <span class="gc" style="text-shadow:0 0 20px rgba(0,242,254,.4);">Lo digitalizamos</span><br>
           <span class="gp">sin complicaciones.</span>
         </h1>
-        <p style="font-size:16px;font-weight:500;color:rgba(255,255,255,.4);line-height:1.7;max-width:480px;margin-bottom:40px;">
+        <p style="font-size:16px;font-weight:500;color:rgba(255,255,255,.65);line-height:1.7;max-width:480px;margin-bottom:40px;">
           Creamos la app de tu negocio a medida — control de citas, clientes y operación diaria. Sin suscripciones mensuales, sin complicaciones técnicas. Un solo pago y tu negocio entra al siglo 21.
         </p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
@@ -239,33 +241,33 @@ footer{position:relative;z-index:10;}
         <div style="display:flex;gap:32px;margin-top:48px;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);">
           <div>
             <div style="font-size:26px;font-weight:900;color:#00F2FE;font-family:'JetBrains Mono',monospace;">1x</div>
-            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Un solo pago</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px;">Un solo pago</div>
           </div>
           <div style="width:1px;background:rgba(255,255,255,.06);"></div>
           <div>
             <div style="font-size:26px;font-weight:900;color:#D4AF37;font-family:'JetBrains Mono',monospace;">3</div>
-            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Ejes de transformación</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px;">Planes de transformación</div>
           </div>
           <div style="width:1px;background:rgba(255,255,255,.06);"></div>
           <div>
             <div style="font-size:26px;font-weight:900;color:#fff;font-family:'JetBrains Mono',monospace;">24h</div>
-            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;">Primera auditoría</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px;">Respuesta garantizada</div>
           </div>
         </div>
       </div>
       <div style="position:relative;">
         <div style="display:flex;flex-direction:column;gap:14px;">
- 
+
           <!-- Label superior -->
           <div style="display:flex;align-items:center;gap:10px;">
             <div style="height:1px;flex:1;background:linear-gradient(to right,rgba(0,242,254,.25),transparent);"></div>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,242,254,.4);">// transformación</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,242,254,.65);">// transformación</span>
             <div style="height:1px;flex:1;background:linear-gradient(to left,rgba(0,242,254,.25),transparent);"></div>
           </div>
- 
+
           <!-- DOS CARDS LADO A LADO con tilt 3D -->
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
- 
+
             <!-- CARD: SIN SISTEMA -->
             <div class="svc-card" data-tilt style="padding:28px 24px;">
               <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);margin-bottom:22px;letter-spacing:.1em;">SIN_DIGITALIZAR</div>
@@ -292,7 +294,7 @@ footer{position:relative;z-index:10;}
                 </div>
               </div>
             </div>
- 
+
             <!-- CARD: CON LÉXICA -->
             <div class="svc-card cc" data-tilt style="padding:28px 24px;">
               <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(0,242,254,.5);margin-bottom:22px;letter-spacing:.1em;">DIGITALIZADO</div>
@@ -320,26 +322,26 @@ footer{position:relative;z-index:10;}
               </div>
             </div>
           </div>
- 
+
           <!-- Tag inferior dorado -->
           <div style="display:flex;align-items:center;justify-content:center;gap:10px;">
             <div style="height:1px;width:28px;background:linear-gradient(to right,transparent,rgba(212,175,55,.7));"></div>
             <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(212,175,55,.9);">pago único · sin mensualidades</span>
             <div style="height:1px;width:28px;background:linear-gradient(to left,transparent,rgba(212,175,55,.7));"></div>
           </div>
- 
+
         </div>
         <div style="position:absolute;top:20%;left:10%;width:80%;height:60%;background:radial-gradient(ellipse,rgba(0,242,254,.1),transparent 70%);pointer-events:none;filter:blur(20px);z-index:-1;"></div>
       </div>
     </div>
   </div>
 </section>
- 
+
 <!-- ══════════ TICKER ══════════ -->
 <div style="border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);background:rgba(0,242,254,.03);padding:14px 0;overflow:hidden;position:relative;z-index:10;">
   <div class="ticker-track" id="ticker"></div>
 </div>
- 
+
 <!-- ══════════ SERVICIOS ══════════ -->
 <section id="servicios" style="padding:120px 24px;max-width:1280px;margin:0 auto;" class="fu">
   <div style="text-align:center;max-width:640px;margin:0 auto 72px;">
@@ -347,141 +349,141 @@ footer{position:relative;z-index:10;}
     <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:18px;">
       <span class="gp">Tres ejes.</span><br><span class="gc">Una transformación total.</span>
     </h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">No vendemos servicios sueltos. Diseñamos ecosistemas donde el software y el espacio físico trabajan como un solo organismo.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;">No vendemos servicios sueltos. Diseñamos ecosistemas donde el software y el espacio físico trabajan como un solo organismo.</p>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
     <div class="svc-card cc" data-tilt>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(0,242,254,.4);margin-bottom:28px;letter-spacing:.1em;">EJE_01 · SINTAXIS</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(0,242,254,.65);margin-bottom:28px;letter-spacing:.1em;">EJE_01 · SINTAXIS</div>
       <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       </div>
-      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Tu App Web Privada</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Una app hecha solo para tu negocio: control de citas, seguimiento de clientes, alertas automáticas por WhatsApp y base de datos en la nube. Tu equipo la usa desde cualquier celular, sin instalar nada.</p>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Tu Sistema Híbrido (Web + Escritorio)</h3>
+      <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:26px;">Agenda, clientes, recordatorios por WhatsApp y seguimiento en tiempo real. Todo en una app privada hecha para tu negocio, sin que pagues mensualidades. Tu equipo la usa desde cualquier celular, sin instalar nada.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-c">Agenda Digital</span><span class="tag-c">WhatsApp Auto</span><span class="tag-c">Base de datos</span></div>
     </div>
     <div class="svc-card cg" data-tilt>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(212,175,55,.4);margin-bottom:28px;letter-spacing:.1em;">EJE_02 · ESTRUCTURA</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(212,175,55,.7);margin-bottom:28px;letter-spacing:.1em;">EJE_02 · ESTRUCTURA</div>
       <div style="width:52px;height:52px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
       </div>
       <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Imagen Visual del Local <span style="font-size:12px;font-weight:600;color:rgba(212,175,55,.5);">(adicional)</span></h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">¿Quieres que tu local también se vea moderno? Diseñamos y colocamos vinilos en paredes, rótulos, stands, mantas y material POP. El software ordena tu operación — la imagen visual multiplica tu valor percibido.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:26px;">¿Quieres que tu local también se vea moderno? Diseñamos y colocamos vinilos en paredes, rótulos, stands, mantas y material POP. También creamos tu página web promocional para que tus clientes te encuentren, agenden y vean tus servicios en línea. El software ordena tu operación — la imagen visual multiplica tu valor percibido.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-g">Fachadas</span><span class="tag-g">Vinilos Premium</span><span class="tag-g">Rotulación 3D</span></div>
     </div>
     <div class="svc-card cc" data-tilt>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(0,242,254,.4);margin-bottom:28px;letter-spacing:.1em;">EJE_03 · MÉTRICAS</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(0,242,254,.65);margin-bottom:28px;letter-spacing:.1em;">EJE_03 · MÉTRICAS</div>
       <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
       </div>
       <h3 style="font-size:22px;font-weight:800;margin-bottom:14px;color:#fff;">Control e Inteligencia</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:26px;">Dashboards simples que cualquier recepcionista puede usar: qué servicio se vende más, qué clientes no han vuelto, cuánto ingresaste esta semana. Información útil, sin complicaciones técnicas.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:26px;">Dashboards que muestran qué servicios venden más, reportes automáticos de tu operación e inteligencia artificial que automatiza tareas. Todo trabaja mientras tú atiendes clientes.</p>
       <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag-c">Dashboard</span><span class="tag-c">Reportes IA</span><span class="tag-c">Reactivación</span></div>
     </div>
   </div>
 </section>
- 
+
 <!-- ══════════ PYMES BLOCK ══════════ -->
 <section style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
   <div class="pyme-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.1);border-radius:24px;padding:60px;">
     <div>
       <div class="slabel" style="color:#D4AF37;">Para quién es esto</div>
       <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px;"><span class="gp">Si tienes un local</span><br><span class="gg">y clientes reales...</span></h2>
-      <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">No necesitas ser una cadena grande. Trabajamos con negocios de 1 a 20 personas que quieren modernizarse sin endeudarse ni pagar mensualidades. Si hoy anotas algo en papel, hay algo que podemos mejorar juntos.</p>
+      <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;">No necesitas ser una cadena grande. Trabajamos con negocios de 1 a 20 personas que quieren modernizarse sin endeudarse ni pagar mensualidades. Si hoy anotas algo en papel, hay algo que podemos mejorar juntos.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px;">
       <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
         <div style="width:34px;height:34px;background:rgba(0,242,254,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Clínicas y consultorios</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">Agenda sincronizada, historiales en la nube, recordatorios automáticos.</div></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Clínicas y consultorios</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;">Agenda sincronizada, historiales en la nube, recordatorios automáticos.</div></div>
       </div>
       <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
         <div style="width:34px;height:34px;background:rgba(212,175,55,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Talleres automotrices</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">El cliente consulta el estado de su carro por placa. Sin llamadas.</div></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Talleres automotrices</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;">El cliente consulta el estado de su carro por placa. Sin llamadas.</div></div>
       </div>
       <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
         <div style="width:34px;height:34px;background:rgba(0,242,254,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Salones, spas y veterinarias</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">Control de bahías, grooms, vacunas y citas desde una pantalla simple.</div></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Salones, spas y veterinarias</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;">Control de bahías, grooms, vacunas y citas desde una pantalla simple.</div></div>
       </div>
       <div style="display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.05);border-radius:14px;">
         <div style="width:34px;height:34px;background:rgba(212,175,55,.08);border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
-        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Cualquier local comercial</div><div style="font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;">Si tienes clientes y un espacio físico, tenemos una solución para ti.</div></div>
+        <div><div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Cualquier local comercial</div><div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;">Si tienes clientes y un espacio físico, tenemos una solución para ti.</div></div>
       </div>
     </div>
   </div>
 </section>
- 
+
 <!-- ══════════ PROCESO ══════════ -->
 <section id="proceso" style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
   <div style="text-align:center;max-width:560px;margin:0 auto 72px;">
     <div class="slabel" style="color:#00F2FE;justify-content:center;">Sin riesgos · Pago único</div>
     <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px;"><span class="gp">Cómo funciona</span></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Cuatro pasos. Sin sorpresas. Sin riesgos. Tú solo pagas cuando ya viste la solución funcionando.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;">Cuatro pasos. Sin sorpresas. Sin riesgos. Tú solo pagas cuando ya viste la solución funcionando.</p>
   </div>
   <div style="max-width:680px;margin:0 auto;" class="pline">
     <div style="display:flex;gap:22px;padding-bottom:38px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#00F2FE;position:relative;z-index:2;">01</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Auditoría gratuita — sin compromiso</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Conversamos sobre tu negocio. ¿Cómo llevas las citas hoy? ¿Qué duele más? En 24 horas te decimos exactamente qué podemos mejorar y cómo.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Auditoría gratuita — sin compromiso</h3><p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;">Conversamos sobre tu negocio. ¿Cómo llevas las citas hoy? ¿Qué duele más? En 24 horas te decimos exactamente qué podemos mejorar y cómo.</p></div>
     </div>
     <div style="display:flex;gap:22px;padding-bottom:38px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#D4AF37;position:relative;z-index:2;">02</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Demo en vivo — la pruebas tú mismo</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Te mostramos la demo de tu tipo de negocio y la pruebas tú. Ves exactamente lo que recibirás antes de pagar un solo quetzal.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Demo en vivo — la pruebas tú mismo</h3><p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;">Te mostramos la demo de tu tipo de negocio y la pruebas tú. Ves exactamente lo que recibirás antes de pagar un solo quetzal.</p></div>
     </div>
     <div style="display:flex;gap:22px;padding-bottom:38px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#00F2FE;position:relative;z-index:2;">03</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Un solo pago, nosotros lo construimos</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Pagas una sola vez por la creación completa de tu sistema. Sin mensualidades, sin sorpresas al mes siguiente.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Un solo pago, nosotros lo construimos</h3><p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;">Pagas una sola vez por la creación completa de tu sistema. Sin mensualidades, sin sorpresas al mes siguiente.</p></div>
     </div>
     <div style="display:flex;gap:22px;">
       <div style="flex-shrink:0;width:48px;height:48px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#D4AF37;position:relative;z-index:2;">04</div>
-      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Tu sistema listo — y lo que sigue</h3><p style="font-size:14px;color:rgba(255,255,255,.4);line-height:1.7;">Tu equipo ya lo usa. Si después quieres más — imagen visual del local, dashboards avanzados, más automatizaciones — lo hacemos como mejora adicional.</p></div>
+      <div style="padding-top:10px;"><h3 style="font-size:18px;font-weight:800;margin-bottom:8px;color:#fff;">Tu sistema listo — y lo que sigue</h3><p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;">Tu equipo ya lo usa. Si después quieres más — imagen visual del local, dashboards avanzados, más automatizaciones — lo hacemos como mejora adicional.</p></div>
     </div>
   </div>
 </section>
- 
+
 <!-- ══════════ DEMOS INTERACTIVAS ══════════ -->
 <section id="demos" style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
   <div style="text-align:center;max-width:600px;margin:0 auto 60px;">
     <div class="slabel" style="color:#D4AF37;justify-content:center;">Ecosistemas Activos de Simulación</div>
     <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:16px;"><span class="gp">Así se ve el sistema</span><br><span class="gc">de tu negocio.</span></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,.4);line-height:1.7;">Estos módulos son 100% interactivos. Úsalos como si fueras el dueño del negocio — agrega citas, consulta vehículos, controla membresías.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;">Estos módulos son 100% interactivos pero simplificados — muestran cómo funciona la lógica. Tu sistema real será personalizado, híbrido y adaptado exactamente a tu operación, tu nicho y tus procesos. Úsalos como si fueras el dueño del negocio.</p>
   </div>
- 
+
   <!-- TABS -->
   <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:40px;">
     <button class="dtab act" id="tab-salon"  onclick="showDemo('salon')">Salón &amp; Spa</button>
     <button class="dtab"     id="tab-taller" onclick="showDemo('taller')">Taller Automotriz</button>
-    <button class="dtab"     id="tab-gym"    onclick="showDemo('gym')">Gym &amp; Fitness</button>
+    <button class="dtab"     id="tab-vet"    onclick="showDemo('vet')">Veterinaria &amp; Pet Grooming</button>
   </div>
- 
+
   <!-- ── DEMO SALÓN ── -->
   <div id="demo-salon">
     <div class="glass" style="border-radius:24px;overflow:hidden;">
       <div class="app-header" style="justify-content:space-between;">
         <div style="display:flex;align-items:center;gap:10px;"><div class="app-dot"></div><span class="app-label" style="color:#00F2FE;">SALON_OS · Panel de Bahías en Vivo</span></div>
-        <span id="s-clock" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.2);"></span>
+        <span id="s-clock" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.55);"></span>
       </div>
       <div id="s-bahias" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:24px;"></div>
       <div style="padding:0 24px 24px;">
         <div style="background:rgba(5,7,13,.6);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px;">
           <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(0,242,254,.5);margin-bottom:12px;letter-spacing:.1em;">// NUEVA CITA</div>
           <div class="salon-form-row" style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;">
-            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;">Cliente</div><input id="s-cli" type="text" placeholder="Nombre..." class="dinput" style="width:100%;"></div>
-            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;">Servicio</div>
+            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:5px;">Cliente</div><input id="s-cli" type="text" placeholder="Nombre..." class="dinput" style="width:100%;"></div>
+            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:5px;">Servicio</div>
               <select id="s-svc" class="dselect" style="width:100%;"><option>Corte + Color</option><option>Keratina</option><option>Manicure Premium</option><option>Facial Boutique</option><option>Tinte Completo</option></select>
             </div>
-            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px;">Bahía</div>
+            <div><div style="font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:5px;">Bahía</div>
               <select id="s-bahia" class="dselect" style="width:100%;"><option value="0">Bahía 1</option><option value="1">Bahía 2</option><option value="2">Bahía 3</option><option value="3">Bahía 4</option></select>
             </div>
             <button class="dbtn-c" onclick="asignarBahia()">+ Asignar</button>
           </div>
         </div>
       </div>
-      <div class="walog" id="s-walog"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:8px;letter-spacing:.08em;">// LOG WhatsApp Automático</div><div class="waline" style="color:rgba(255,255,255,.25);font-style:italic;">Esperando actividad...</div></div>
+      <div class="walog" id="s-walog"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:8px;letter-spacing:.08em;">// LOG WhatsApp Automático</div><div class="waline" style="color:rgba(255,255,255,0.6);font-style:italic;">Esperando actividad...</div></div>
     </div>
   </div>
- 
+
   <!-- ── DEMO TALLER ── -->
   <div id="demo-taller" style="display:none;">
-    <div class="glass" style="border-radius:24px;overflow:hidden;border-color:rgba(212,175,55,.15);">
-      <div class="app-header" style="background:rgba(212,175,55,.05);border-bottom-color:rgba(212,175,55,.1);">
+    <div class="glass" style="border-radius:24px;overflow:hidden;border-color:rgba(212,175,55,0.5);">
+      <div class="app-header" style="background:rgba(212,175,55,.05);border-bottom-color:rgba(212,175,55,0.44999999999999996);">
         <div class="app-dot-g"></div><span class="app-label" style="color:#D4AF37;">TALLER_OS · Seguimiento por Placa</span>
       </div>
       <div style="padding:24px;border-bottom:1px solid rgba(255,255,255,.05);">
@@ -493,55 +495,218 @@ footer{position:relative;z-index:10;}
         <div id="t-res" style="margin-top:18px;"></div>
       </div>
       <div style="padding:24px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;">Panel Interno · Actualizar vehículos</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:14px;">Panel Interno · Actualizar vehículos</div>
         <div id="t-vehiculos"></div>
       </div>
     </div>
   </div>
- 
+
   <!-- ── DEMO GYM ── -->
-  <div id="demo-gym" style="display:none;">
+  <div id="demo-vet" style="display:none;">
     <div class="glass" style="border-radius:24px;overflow:hidden;">
       <div class="app-header" style="justify-content:space-between;">
-        <div style="display:flex;align-items:center;gap:10px;"><div class="app-dot"></div><span class="app-label" style="color:#00F2FE;">GYM_OS · Control de Aforo y Membresías</span></div>
-        <span id="g-aforo-txt" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);">0/50 personas</span>
+        <div style="display:flex;align-items:center;gap:10px;"><div class="app-dot"></div><span class="app-label" style="color:#00F2FE;">VETERINARIA_OS · Control de Mascotas y Servicios</span></div>
+        <span id="v-hoy-txt" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.6);">0/12 atendidas</span>
       </div>
       <div style="padding:24px 24px 16px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-          <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">Aforo actual</span>
+          <span style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);">Mascotas atendidas hoy</span>
           <div style="display:flex;gap:8px;">
-            <button onclick="setAforo(-1)" style="width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;font-size:18px;cursor:pointer;line-height:1;">−</button>
-            <button onclick="setAforo(1)"  style="width:32px;height:32px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.3);border-radius:8px;color:#00F2FE;font-size:18px;cursor:pointer;line-height:1;">+</button>
+            <button onclick="vetAtender(-1)" style="width:32px;height:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;font-size:18px;cursor:pointer;line-height:1;">−</button>
+            <button onclick="vetAtender(1)"  style="width:32px;height:32px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.3);border-radius:8px;color:#00F2FE;font-size:18px;cursor:pointer;line-height:1;">+</button>
           </div>
         </div>
-        <div class="abar-wrap"><div id="g-bar" class="abar" style="width:60%;background:linear-gradient(90deg,#00F2FE,#4FACFE);"></div></div>
+        <div class="abar-wrap"><div id="v-bar" class="abar" style="width:0%;background:linear-gradient(90deg,#00F2FE,#4FACFE);"></div></div>
         <div style="display:flex;justify-content:space-between;margin-top:6px;">
-          <span style="font-size:10px;color:rgba(255,255,255,.25);">0</span>
-          <span id="g-status" style="font-size:10px;font-weight:700;color:#00F2FE;letter-spacing:.1em;">CAPACIDAD NORMAL</span>
-          <span style="font-size:10px;color:rgba(255,255,255,.25);">MAX 50</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.6);">0</span>
+          <span id="v-status" style="font-size:10px;font-weight:700;color:#00F2FE;letter-spacing:.1em;">SIN INICIAR</span>
+          <span style="font-size:10px;color:rgba(255,255,255,0.6);">CAP. 12</span>
         </div>
       </div>
       <div style="padding:8px 24px 24px;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px;">Membresías activas</div>
-        <div id="g-members"></div>
-        <button onclick="renovarTodos()" style="width:100%;background:rgba(0,242,254,.06);border:1px solid rgba(0,242,254,.2);border-radius:10px;padding:12px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00F2FE;cursor:pointer;margin-top:12px;transition:all .2s;">⟳ Auto-Renovar Membresías Vencidas</button>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:12px;">Registro de Mascotas</div>
+        <div id="v-mascotas"></div>
+        <button onclick="vetRecordarTodos()" style="width:100%;background:rgba(0,242,254,.06);border:1px solid rgba(0,242,254,.2);border-radius:10px;padding:12px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#00F2FE;cursor:pointer;margin-top:12px;transition:all .2s;">📲 Enviar Recordatorios Pendientes por WhatsApp</button>
       </div>
     </div>
   </div>
- 
-  <div style="margin-top:48px;text-align:center;">
-    <p style="font-size:14px;color:rgba(255,255,255,.3);margin-bottom:18px;">¿Tu sector no está aquí? Construimos tu módulo desde cero.</p>
-    <a href="#contacto" class="btn-cyan">Solicitar mi demo personalizado →</a>
+
+
+</section>
+
+<!-- ══ PLANES ══ -->
+<section id="planes" style="padding:0 24px 120px;max-width:1280px;margin:0 auto;" class="fu">
+  <div style="text-align:center;max-width:640px;margin:0 auto 72px;">
+    <div class="slabel" style="color:#D4AF37;justify-content:center;">// Elige tu punto de entrada</div>
+    <h2 style="font-size:42px;font-weight:900;letter-spacing:-.02em;line-height:1.1;margin-bottom:18px;">
+      <span class="gp">Tres planes.</span><br><span class="gc">Un solo objetivo.</span>
+    </h2>
+    <p style="font-size:15px;color:rgba(255,255,255,.65);line-height:1.7;">Tu negocio moderno, sin mensualidades altas, sin complicaciones. Empieza donde puedas y escala cuando quieras.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+
+    <!-- PLAN 1 -->
+    <div class="svc-card cc" data-tilt style="padding:40px 36px;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(0,242,254,.65);margin-bottom:24px;letter-spacing:.12em;">PLAN_01</div>
+      <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:6px;">Orden Digital</h3>
+      <p style="font-size:12px;color:rgba(255,255,255,.65);margin-bottom:6px;line-height:1.5;font-style:italic;">Para negocios que quieren digitalizarse por primera vez</p>
+      <p style="font-size:11px;font-weight:700;color:#00F2FE;margin-bottom:24px;">Sin suscripciones costosas. Sin CRMs complicados. Sin mensualidades altas.</p>
+      <div style="flex:1;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Agenda de citas digitalizada en la nube</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Base de clientes organizada y accesible</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Recordatorios por WhatsApp con un clic</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Seguimiento en tiempo real de tus servicios</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Dashboard básico de tu negocio</span></div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#00F2FE;box-shadow:0 0 6px rgba(0,242,254,.6);"></div><span style="font-size:11px;font-weight:700;color:#00F2FE;letter-spacing:.08em;text-transform:uppercase;">Pago único</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:rgba(0,242,254,.3);"></div><span style="font-size:11px;color:rgba(255,255,255,.65);">Bug fix incluido — 30 días tras entrega</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.4);"></div><span style="font-size:11px;color:rgba(212,175,55,.6);">+ Mantenimiento opcional (costo mensual)</span></div>
+      </div>
+    </div>
+
+    <!-- PLAN 2 -->
+    <div class="svc-card cg" data-tilt style="padding:40px 36px;display:flex;flex-direction:column;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:20px;right:20px;background:linear-gradient(135deg,#D4AF37,#FFDF00);color:#0B0F1A;font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:50px;">MÁS ELEGIDO</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:24px;letter-spacing:.12em;">PLAN_02</div>
+      <div style="width:52px;height:52px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.25);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+      </div>
+      <h3 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:6px;">Phygital Esencial</h3>
+      <p style="font-size:12px;color:rgba(255,255,255,.65);margin-bottom:6px;line-height:1.5;font-style:italic;">Para negocios que quieren conocer y crecer su operación</p>
+      <p style="font-size:11px;font-weight:700;color:#D4AF37;margin-bottom:24px;">Sin contratar analistas. Sin Excel interminable. Sin mensualidades altas.</p>
+      <div style="flex:1;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+        <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(212,175,55,.06);border-radius:8px;border:1px solid rgba(212,175,55,.1);"><span style="font-size:11px;color:rgba(212,175,55,.6);font-weight:600;">↳ Todo lo del Plan 1, más:</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Dashboards avanzados de tu negocio</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Reportes automáticos de tu operación</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Qué servicios venden más, ingresos por período</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Automatizaciones inteligentes en tu base de datos</span></div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#D4AF37;box-shadow:0 0 6px rgba(212,175,55,.6);"></div><span style="font-size:11px;font-weight:700;color:#D4AF37;letter-spacing:.08em;text-transform:uppercase;">Pago único</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.4);"></div><span style="font-size:11px;color:rgba(255,255,255,.65);">Bug fix incluido — 60 días tras entrega</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.4);"></div><span style="font-size:11px;color:rgba(212,175,55,.6);">+ Mantenimiento opcional (costo mensual)</span></div>
+      </div>
+    </div>
+
+    <!-- PLAN 3 -->
+    <div class="svc-card cc" data-tilt style="padding:40px 36px;display:flex;flex-direction:column;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(0,242,254,.65);margin-bottom:24px;letter-spacing:.12em;">PLAN_03</div>
+      <div style="width:52px;height:52px;background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      </div>
+      <h3 style="font-size:22px;font-weight:900;color:#fff;margin-bottom:6px;">Léxica Premium IA</h3>
+      <p style="font-size:12px;color:rgba(255,255,255,.65);margin-bottom:6px;line-height:1.5;font-style:italic;">Para negocios que quieren automatizar y crecer con Inteligencia Artificial</p>
+      <p style="font-size:11px;font-weight:700;color:#00F2FE;margin-bottom:24px;">Sin agencias caras. Sin herramientas imposibles. IA trabajando por ti, 24/7.</p>
+      <div style="flex:1;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+        <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:rgba(0,242,254,.04);border-radius:8px;border:1px solid rgba(0,242,254,.08);"><span style="font-size:11px;color:rgba(0,242,254,.5);font-weight:600;">↳ Todo lo del Plan 2, más:</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Automatizaciones inteligentes 24/7 con IA</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Tu negocio confirma y responde solo</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Reactivación automática de clientes inactivos</span></div>
+        <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:16px;height:16px;border-radius:5px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><polyline points="1,4 3,6 7,2" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;">Contenido para redes generado con IA</span></div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#00F2FE;box-shadow:0 0 6px rgba(0,242,254,.6);"></div><span style="font-size:11px;font-weight:700;color:#00F2FE;letter-spacing:.08em;text-transform:uppercase;">Pago único por setup</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:#D4AF37;box-shadow:0 0 6px rgba(212,175,55,.5);"></div><span style="font-size:11px;font-weight:700;color:#D4AF37;">Mantenimiento mensual obligatorio</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:rgba(212,175,55,.3);"></div><span style="font-size:11px;color:rgba(212,175,55,.5);">Incluye herramientas IA y automatizaciones</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Adicionales footer note -->
+  <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.1);border-radius:16px;padding:24px 28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(212,175,55,.5);margin-bottom:10px;">Adicional disponible en todos los planes</div>
+      <div style="font-size:14px;font-weight:700;color:#D4AF37;margin-bottom:6px;">Branding de Superficie — Imagen Visual del Local</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;">Rótulos, vinilos, stands y señalética diseñados para tu espacio físico.</div>
+      <div style="font-size:11px;color:rgba(212,175,55,.7);margin-top:10px;font-style:italic;">Cotización aparte según proyecto</div>
+    </div>
+    <div style="background:rgba(0,242,254,.04);border:1px solid rgba(0,242,254,.1);border-radius:16px;padding:24px 28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,242,254,.65);margin-bottom:10px;">Adicional disponible en todos los planes</div>
+      <div style="font-size:14px;font-weight:700;color:#00F2FE;margin-bottom:6px;">Web Promocional de tu Negocio</div>
+      <div style="font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;">Página web moderna con tus servicios, fotos y formulario de contacto. Tus clientes te encuentran en línea.</div>
+      <div style="font-size:11px;color:rgba(0,242,254,.6);margin-top:10px;font-style:italic;">Cotización aparte según proyecto</div>
+    </div>
   </div>
 </section>
- 
+
+<!-- ══════════ PORTAFOLIO WEB ══════════ -->
+<section id="portafolio" style="padding:0 24px 120px;max-width:1100px;margin:0 auto;">
+
+  <div style="text-align:center;margin-bottom:48px;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#D4AF37;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;">// Web Promocional</div>
+    <h2 style="font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1.1;">Páginas que <span class="gc">diseñamos.</span></h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+    <!-- SOLÈNE -->
+    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(184,150,90,.2);transition:all .35s;cursor:pointer;"
+         onmouseenter="this.style.borderColor='rgba(184,150,90,.8)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(184,150,90,.1)'"
+         onmouseleave="this.style.borderColor='rgba(184,150,90,.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <!-- Colored preview top -->
+      <div style="background:linear-gradient(160deg,#0A0806,#1A1410);padding:28px 24px;position:relative;overflow:hidden;height:160px;">
+        <div style="position:absolute;top:-30px;right:-30px;width:130px;height:130px;background:radial-gradient(circle,rgba(184,150,90,.15),transparent);border-radius:50%;pointer-events:none;"></div>
+        <div style="font-family:'Georgia',serif;font-size:10px;color:rgba(250,247,242,.7);letter-spacing:4px;margin-bottom:2px;">SOLÈNE</div>
+        <div style="font-size:7px;color:rgba(184,150,90,.8);letter-spacing:5px;margin-bottom:14px;">STUDIO</div>
+        <div style="font-family:'Georgia',serif;font-size:22px;font-weight:300;color:#FAF7F2;line-height:1.1;">Donde la<br><em style="color:#B8965A;">luz</em> ilumina.</div>
+        <div style="position:absolute;bottom:16px;right:16px;display:flex;gap:4px;">
+          <div style="width:6px;height:6px;background:rgba(184,150,90,.4);border-radius:50%;"></div>
+          <div style="width:6px;height:6px;background:rgba(184,150,90,.25);border-radius:50%;"></div>
+          <div style="width:6px;height:6px;background:rgba(184,150,90,.1);border-radius:50%;"></div>
+        </div>
+      </div>
+      <!-- Card bottom -->
+      <div style="background:rgba(11,8,6,.9);padding:18px 20px;">
+        <div style="font-size:13px;font-weight:700;color:#FAF7F2;margin-bottom:3px;">SOLÈNE Studio</div>
+        <div style="font-size:11px;color:rgba(243,244,246,.65);margin-bottom:14px;">Salón de Belleza · Plan 2 + Web</div>
+        <a href="solene-studio.html" target="_blank"
+           style="display:block;text-align:center;padding:10px;background:rgba(184,150,90,.1);border:1px solid rgba(184,150,90,.2);border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D4AF37;text-decoration:none;transition:all .3s;"
+           onmouseenter="this.style.background='rgba(184,150,90,.2)'"
+           onmouseleave="this.style.background='rgba(184,150,90,.1)'">Ver demo →</a>
+      </div>
+    </div>
+
+    <!-- VITARA -->
+    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(45,138,82,.2);transition:all .35s;cursor:pointer;"
+         onmouseenter="this.style.borderColor='rgba(45,138,82,.5)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(45,138,82,.1)'"
+         onmouseleave="this.style.borderColor='rgba(45,138,82,.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <!-- Colored preview top -->
+      <div style="background:linear-gradient(160deg,#030D07,#071208);padding:28px 24px;position:relative;overflow:hidden;height:160px;">
+        <div style="position:absolute;top:-30px;right:-30px;width:130px;height:130px;background:radial-gradient(circle,rgba(26,107,60,.2),transparent);border-radius:50%;pointer-events:none;"></div>
+        <div style="display:inline-flex;align-items:center;gap:5px;background:rgba(45,138,82,.15);border:1px solid rgba(45,138,82,.3);border-radius:100px;padding:3px 10px;margin-bottom:12px;">
+          <div style="width:5px;height:5px;background:#4DAA72;border-radius:50%;"></div>
+          <span style="font-size:8px;color:#4DAA72;letter-spacing:.06em;text-transform:uppercase;font-weight:600;">Abierto ahora</span>
+        </div>
+        <div style="font-family:'Georgia',serif;font-size:20px;color:#FAFCFA;line-height:1.2;">Tu mascota,<br><em style="color:#4DAA72;">en buenas manos.</em></div>
+      </div>
+      <!-- Card bottom -->
+      <div style="background:rgba(3,13,7,.95);padding:18px 20px;">
+        <div style="font-size:13px;font-weight:700;color:#FAFCFA;margin-bottom:3px;">VITARA Clinic</div>
+        <div style="font-size:11px;color:rgba(250,252,250,.65);margin-bottom:14px;">Clínica Veterinaria · Plan 2 + Web</div>
+        <a href="vitara-clinic.html" target="_blank"
+           style="display:block;text-align:center;padding:10px;background:rgba(45,138,82,.1);border:1px solid rgba(45,138,82,.2);border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#4DAA72;text-decoration:none;transition:all .3s;"
+           onmouseenter="this.style.background='rgba(45,138,82,.2)'"
+           onmouseleave="this.style.background='rgba(45,138,82,.1)'">Ver demo →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;margin-top:20px;font-size:11px;color:rgba(243,244,246,.55);">Adicional disponible en todos los planes · <span style="color:rgba(212,175,55,.65);">Cotización aparte según proyecto</span></p>
+</section>
+
 <!-- ══════════ CONTACTO ══════════ -->
 <section id="contacto" style="padding:0 24px 120px;max-width:800px;margin:0 auto;" class="fu">
   <div class="glass" style="border-radius:28px;padding:60px;">
     <div style="text-align:center;margin-bottom:44px;">
       <div class="slabel" style="color:#00F2FE;justify-content:center;">Paso 1 de 4</div>
       <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px;"><span class="gp">Iniciar Conexión</span><br><span class="gc">Léxica Phygital</span></h2>
-      <p style="font-size:14px;color:rgba(255,255,255,.35);max-width:420px;margin:0 auto;line-height:1.7;">Cuéntanos sobre tu negocio. En menos de 24 horas te contactamos para mostrarte la demo de tu sector — completamente gratis y sin compromiso.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,.82);max-width:420px;margin:0 auto;line-height:1.7;">Cuéntanos sobre tu negocio. En menos de 24 horas te contactamos para mostrarte la demo de tu sector — completamente gratis y sin compromiso.</p>
     </div>
     <div id="fcontainer">
       <div class="grid2" style="margin-bottom:18px;" id="frow1">
@@ -567,30 +732,30 @@ footer{position:relative;z-index:10;}
       <div style="margin-bottom:30px;">
         <label class="flabel">Inversión actual en tecnología</label>
         <div class="grid3" id="presupuestos">
-          <label style="cursor:pointer;"><input type="radio" name="pres" value="ninguno" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Nada ($0)</div></label>
-          <label style="cursor:pointer;"><input type="radio" name="pres" value="bajo" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Algo (&lt;$100/mes)</div></label>
-          <label style="cursor:pointer;"><input type="radio" name="pres" value="algo" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Bastante ($100+)</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="pres" value="ninguno" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.82);transition:all .2s;">Nada ($0)</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="pres" value="bajo" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.82);transition:all .2s;">Algo (&lt;$100/mes)</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="pres" value="algo" style="display:none;" class="pradio"><div class="plabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.82);transition:all .2s;">Bastante ($100+)</div></label>
         </div>
       </div>
       <div style="margin-bottom:20px;">
         <label class="flabel">¿Te interesa también renovar la imagen visual de tu local?</label>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;">
-          <label style="cursor:pointer;"><input type="radio" name="visual" value="si" style="display:none;" class="vradio"><div class="vlabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:12px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Sí, también me interesa</div></label>
-          <label style="cursor:pointer;"><input type="radio" name="visual" value="no" style="display:none;" class="vradio"><div class="vlabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:12px;font-weight:600;color:rgba(255,255,255,.35);transition:all .2s;">Por ahora solo el software</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="visual" value="si" style="display:none;" class="vradio"><div class="vlabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:12px;font-weight:600;color:rgba(255,255,255,.82);transition:all .2s;">Sí, también me interesa</div></label>
+          <label style="cursor:pointer;"><input type="radio" name="visual" value="no" style="display:none;" class="vradio"><div class="vlabel" style="padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-align:center;font-size:12px;font-weight:600;color:rgba(255,255,255,.82);transition:all .2s;">Por ahora solo el software</div></label>
         </div>
       </div>
       <button class="btn-gold" onclick="enviarForm()">Solicitar Auditoría Gratuita →</button>
-      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.2);margin-top:14px;">Sin spam. Sin compromiso. Respuesta en menos de 24 horas.</p>
+      <p style="text-align:center;font-size:11px;color:rgba(255,255,255,0.55);margin-top:14px;">Sin spam. Sin compromiso. Respuesta en menos de 24 horas.</p>
     </div>
     <div id="fsuccess" style="display:none;text-align:center;padding:40px 0;">
       <div style="width:72px;height:72px;background:rgba(0,242,254,.1);border:1px solid rgba(0,242,254,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
       <h3 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:10px;">¡Conexión iniciada!</h3>
-      <p style="font-size:14px;color:rgba(255,255,255,.4);margin-bottom:26px;line-height:1.7;">Recibimos tu información. En breve abrirá WhatsApp con tu mensaje pre-cargado.</p>
+      <p style="font-size:14px;color:rgba(255,255,255,.82);margin-bottom:26px;line-height:1.7;">Recibimos tu información. En breve abrirá WhatsApp con tu mensaje pre-cargado.</p>
       <div style="background:rgba(0,242,254,.05);border:1px solid rgba(0,242,254,.1);border-radius:14px;padding:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:rgba(0,242,254,.6);text-align:left;">STATUS: AUDITORIA_AGENDADA<br>RESPUESTA_ESTIMADA: &lt; 24h<br>CANAL: WhatsApp_Direct</div>
     </div>
   </div>
 </section>
- 
+
 <!-- ══════════ FOOTER ══════════ -->
 <footer style="border-top:1px solid rgba(255,255,255,.04);background:rgba(5,7,13,.8);padding:48px 24px;">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:18px;">
@@ -614,11 +779,11 @@ footer{position:relative;z-index:10;}
         <text x="160" y="88" font-family="'Montserrat',sans-serif" font-size="13" font-weight="700" fill="url(#cc2)" letter-spacing="12">P H Y G I T A L</text>
       </svg>
     </div>
-    <p style="font-size:12px;color:rgba(255,255,255,.2);letter-spacing:.05em;">Sintaxis Digital. Estructura Física.</p>
-    <p style="font-size:11px;color:rgba(255,255,255,.12);">© 2026 LÉXICA PHYGITAL · Guatemala · Todos los derechos reservados.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.05em;">Sintaxis Digital. Estructura Física.</p>
+    <p style="font-size:11px;color:rgba(255,255,255,.5);">© 2026 LÉXICA PHYGITAL · Guatemala · Todos los derechos reservados. Prohibida la reproducción total o parcial de esta página, diseños, estructura, planes y contenidos sin autorización expresa. Diseño y estrategia protegidos bajo derechos de autor.</p>
   </div>
 </footer>
- 
+
 <script>
 // ── NAVBAR ──
 (function(){
@@ -637,35 +802,35 @@ footer{position:relative;z-index:10;}
   mb.addEventListener('click',function(){ var m=document.getElementById('mmenu'); m.style.display=m.style.display==='none'?'block':'none'; });
 })();
 function closeMob(){ document.getElementById('mmenu').style.display='none'; }
- 
+
 // ── MOBILE GRID FIX ──
 (function(){
   var hg=document.getElementById('hero-grid');
   function chk(){ hg.style.gridTemplateColumns=window.innerWidth<900?'1fr':'1fr 1fr'; }
   chk(); window.addEventListener('resize',chk);
 })();
- 
+
 // ── TICKER ──
 (function(){
   var items=['✦ Apps web privadas','✦ Automatización WhatsApp','✦ Branding de fachadas','✦ Vinilos premium','✦ Dashboards analíticos','✦ Rotulación 3D','✦ Control de citas','✦ Pago único','✦ Renovación física total','✦ Sin suscripciones','✦ IA generativa','✦ Para PYMEs locales','✦ Demo en vivo'];
   var t=document.getElementById('ticker');
   var all=items.concat(items);
-  all.forEach(function(x){ var s=document.createElement('span'); s.textContent=x; s.style.cssText='display:inline-block;padding:0 32px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.22);white-space:nowrap;'; t.appendChild(s); });
+  all.forEach(function(x){ var s=document.createElement('span'); s.textContent=x; s.style.cssText='display:inline-block;padding:0 32px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.57);white-space:nowrap;'; t.appendChild(s); });
 })();
- 
+
 // ── FADE IN ──
 (function(){
   var els=document.querySelectorAll('.fu');
   var io=new IntersectionObserver(function(e){ e.forEach(function(x){ if(x.isIntersecting) x.target.classList.add('vis'); }); },{threshold:0.08});
   els.forEach(function(el){ io.observe(el); });
 })();
- 
+
 // ── TILT CARDS ──
 document.querySelectorAll('[data-tilt]').forEach(function(c){
   c.addEventListener('mousemove',function(e){ var r=c.getBoundingClientRect(),x=((e.clientX-r.left)-r.width/2)/14,y=((r.height/2)-(e.clientY-r.top))/14; c.style.transform='perspective(1000px) rotateX('+y+'deg) rotateY('+x+'deg) scale3d(1.02,1.02,1.02)'; });
   c.addEventListener('mouseleave',function(){ c.style.transform='perspective(1000px) rotateX(0) rotateY(0) scale3d(1,1,1)'; });
 });
- 
+
 // ── RADIO BUTTONS ──
 document.querySelectorAll('.vradio').forEach(function(r){
   r.addEventListener('change',function(){
@@ -679,7 +844,7 @@ document.querySelectorAll('.pradio').forEach(function(r){
     var lbl=r.nextElementSibling; lbl.style.borderColor='rgba(0,242,254,.4)'; lbl.style.color='#00F2FE'; lbl.style.background='rgba(0,242,254,.05)';
   });
 });
- 
+
 // ── FORM ──
 function enviarForm(){
   var nom=document.getElementById('f-nom').value.trim();
@@ -696,16 +861,17 @@ function enviarForm(){
   document.getElementById('fsuccess').style.display='block';
   setTimeout(function(){ window.open('https://wa.me/'+waNum+'?text='+encodeURIComponent(txt),'_blank'); },800);
 }
- 
+
 // ── DEMO TABS ──
 function showDemo(name){
-  ['salon','taller','gym'].forEach(function(d){
+  ['salon','taller','vet'].forEach(function(d){
     document.getElementById('demo-'+d).style.display=d===name?'block':'none';
     var t=document.getElementById('tab-'+d);
     if(d===name){ t.classList.add('act'); } else { t.classList.remove('act'); }
   });
+  if(name==='vet') renderVet();
 }
- 
+
 // ── DEMO SALÓN ──
 var bahias=[
   {cliente:'Karla Méndez',svc:'Corte + Color',inicio:Date.now()-1000*60*35,min:90,est:'Sofía R.'},
@@ -714,7 +880,7 @@ var bahias=[
   {cliente:'',svc:'',inicio:null,min:0,est:''}
 ];
 var waLines=[];
- 
+
 function renderSalon(){
   var g=document.getElementById('s-bahias'); if(!g) return;
   g.innerHTML=bahias.map(function(b,i){
@@ -726,18 +892,18 @@ function renderSalon(){
     var br=ocup?'rgba(0,242,254,.2)':'rgba(212,175,55,.15)';
     return '<div style="background:'+bg+';border:1px solid '+br+';border-radius:14px;padding:18px;transition:all .3s;">'
       +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">'
-      +'<span style="font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;">BAHÍA '+(i+1)+'</span>'
+      +'<span style="font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(255,255,255,.6);letter-spacing:.1em;">BAHÍA '+(i+1)+'</span>'
       +'<span style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:50px;background:'+(ocup?'rgba(0,242,254,.1)':'rgba(212,175,55,.1)')+';color:'+c+';">'+(ocup?'OCUPADA':'LIBRE')+'</span>'
       +'</div>'
       +(ocup?
         '<div style="font-size:15px;font-weight:800;color:#fff;margin-bottom:3px;">'+b.cliente+'</div>'
-        +'<div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:2px;">'+b.svc+'</div>'
-        +'<div style="font-size:10px;color:rgba(255,255,255,.25);margin-bottom:12px;">Estilista: '+b.est+'</div>'
+        +'<div style="font-size:11px;color:rgba(255,255,255,.65);margin-bottom:2px;">'+b.svc+'</div>'
+        +'<div style="font-size:10px;color:rgba(255,255,255,0.6);margin-bottom:12px;">Estilista: '+b.est+'</div>'
         +'<div class="pbar-wrap" style="margin-bottom:5px;"><div class="pbar" style="width:'+pct+'%;"></div></div>'
-        +'<div style="display:flex;justify-content:space-between;margin-bottom:10px;"><span style="font-size:9px;color:rgba(255,255,255,.25);">'+el+' min</span><span style="font-size:9px;color:#00F2FE;">'+pct+'%</span></div>'
-        +'<button onclick="liberarBahia('+i+')" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:7px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);cursor:pointer;">✓ Marcar Libre</button>'
+        +'<div style="display:flex;justify-content:space-between;margin-bottom:10px;"><span style="font-size:9px;color:rgba(255,255,255,0.6);">'+el+' min</span><span style="font-size:9px;color:#00F2FE;">'+pct+'%</span></div>'
+        +'<button onclick="liberarBahia('+i+')" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:7px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);cursor:pointer;">✓ Marcar Libre</button>'
         :
-        '<div style="font-size:13px;color:rgba(255,255,255,.2);margin:8px 0 12px;font-style:italic;">Sin cliente asignado</div>'
+        '<div style="font-size:13px;color:rgba(255,255,255,0.55);margin:8px 0 12px;font-style:italic;">Sin cliente asignado</div>'
         +'<div style="font-size:10px;color:rgba(212,175,55,.5);">↑ Asigna una cita abajo</div>'
       )
       +'</div>';
@@ -746,14 +912,14 @@ function renderSalon(){
   if(cl){ var n=new Date(); cl.textContent=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0'); }
   renderWALog();
 }
- 
+
 function renderWALog(){
   var wl=document.getElementById('s-walog'); if(!wl) return;
   if(waLines.length===0) return;
   wl.innerHTML='<div style="font-family:JetBrains Mono,monospace;font-size:10px;color:rgba(212,175,55,.5);margin-bottom:8px;letter-spacing:.08em;">// LOG WhatsApp Automático</div>'
     +waLines.slice(-5).reverse().map(function(m){ return '<div class="waline">'+m+'</div>'; }).join('');
 }
- 
+
 function asignarBahia(){
   var cli=document.getElementById('s-cli').value.trim();
   var svc=document.getElementById('s-svc').value;
@@ -765,7 +931,7 @@ function asignarBahia(){
   waLines.push('['+h+'] ✓ → '+cli+': "Tu cita de '+svc+' está confirmada. ¡Te esperamos!"');
   renderSalon();
 }
- 
+
 function liberarBahia(i){
   var nom=bahias[i].cliente;
   bahias[i]={cliente:'',svc:'',inicio:null,min:0,est:''};
@@ -773,10 +939,10 @@ function liberarBahia(i){
   waLines.push('['+h+'] ✓ → '+nom+': "Tu servicio terminó. ¡Gracias! Te esperamos pronto 💛"');
   renderSalon();
 }
- 
+
 setInterval(renderSalon,30000);
 renderSalon();
- 
+
 // ── DEMO TALLER ──
 var vehiculos=[
   {placa:'P-847XKL',cliente:'Roberto Soto',modelo:'Toyota Hilux 2022',estado:0},
@@ -785,7 +951,7 @@ var vehiculos=[
 ];
 var tEtapas=['Recibido','En diagnóstico','En reparación','Control de calidad','Listo ✓'];
 var tColores=['rgba(255,255,255,.5)','#00F2FE','#D4AF37','#A78BFA','#4ADE80'];
- 
+
 function renderTaller(){
   var c=document.getElementById('t-vehiculos'); if(!c) return;
   c.innerHTML=vehiculos.map(function(v,vi){
@@ -804,9 +970,9 @@ function renderTaller(){
       +'</div></div>';
   }).join('');
 }
- 
+
 function avanzarVeh(i,d){ vehiculos[i].estado=Math.max(0,Math.min(4,vehiculos[i].estado+d)); renderTaller(); }
- 
+
 function consultarPlaca(){
   var p=document.getElementById('t-placa').value.trim().toUpperCase();
   var r=document.getElementById('t-res');
@@ -816,20 +982,76 @@ function consultarPlaca(){
     var col=tColores[v.estado];
     r.innerHTML='<div style="background:rgba(5,7,13,.8);border:1px solid rgba(212,175,55,.2);border-radius:14px;padding:20px;">'
       +'<div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:3px;">'+v.modelo+'</div>'
-      +'<div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px;">Cliente: '+v.cliente+'</div>'
+      +'<div style="font-size:11px;color:rgba(255,255,255,.65);margin-bottom:14px;">Cliente: '+v.cliente+'</div>'
       +'<div class="pbar-wrap" style="margin-bottom:8px;"><div class="pbar pbar-g" style="width:'+pct+'%;"></div></div>'
-      +'<div style="display:flex;justify-content:space-between;"><span style="font-size:13px;font-weight:700;color:'+col+';">'+tEtapas[v.estado]+'</span><span style="font-size:11px;color:rgba(255,255,255,.3);">'+pct+'% completado</span></div>'
+      +'<div style="display:flex;justify-content:space-between;"><span style="font-size:13px;font-weight:700;color:'+col+';">'+tEtapas[v.estado]+'</span><span style="font-size:11px;color:rgba(255,255,255,.6);">'+pct+'% completado</span></div>'
       +'</div>';
   } else if(p) {
-    r.innerHTML='<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;font-size:13px;color:rgba(255,255,255,.3);">Placa no encontrada. Prueba: P-847XKL · M-312BQT · C-091ZPR</div>';
+    r.innerHTML='<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;font-size:13px;color:rgba(255,255,255,.6);">Placa no encontrada. Prueba: P-847XKL · M-312BQT · C-091ZPR</div>';
   }
 }
- 
+
 renderTaller();
- 
+
 // ── DEMO GYM ──
 var gymAforo=30;
 var GYM_MAX=50;
+// ── VETERINARIA DATA ──
+var vetHoy=0; var VET_MAX=12;
+var mascotas=[
+  {nom:'Luna',tipo:'🐶 Golden Retriever',dueno:'Andrea Pérez',servicio:'Vacuna Rabia',dias:-3},
+  {nom:'Michi',tipo:'🐱 Gato Persa',dueno:'Roberto Salguero',servicio:'Grooming',dias:2},
+  {nom:'Rocky',tipo:'🐶 Labrador',dueno:'Claudia Méndez',servicio:'Desparasitación',dias:0},
+  {nom:'Coco',tipo:'🐶 Poodle',dueno:'Fernanda Torres',servicio:'Vacuna Triple',dias:12},
+  {nom:'Nala',tipo:'🐱 Siamés',dueno:'Julio Herrera',servicio:'Grooming',dias:-1}
+];
+function vetAtender(d){
+  vetHoy=Math.max(0,Math.min(VET_MAX,vetHoy+d));
+  renderVet();
+}
+function vetRecordarTodos(){
+  var pendientes=mascotas.filter(function(m){return m.dias<=2;});
+  if(!pendientes.length){alert('No hay recordatorios pendientes.');return;}
+  var msgs=pendientes.map(function(m){return '• '+m.nom+' ('+m.dueno+'): '+m.servicio+(m.dias<0?' VENCIDO hace '+Math.abs(m.dias)+'d':m.dias===0?' HOY':' en '+m.dias+'d');}).join('\n');
+  alert('📲 Recordatorios enviados por WhatsApp a:\n\n'+msgs);
+}
+function renderVet(){
+  var pct=Math.round(vetHoy/VET_MAX*100);
+  var bar=document.getElementById('v-bar');
+  var st=document.getElementById('v-status');
+  var af=document.getElementById('v-hoy-txt');
+  if(bar){
+    if(pct>=90){bar.style.background='linear-gradient(90deg,#EF4444,#F87171)';st.style.color='#EF4444';st.textContent='⚠ DÍA COMPLETO';}
+    else if(pct>=60){bar.style.background='linear-gradient(90deg,#F59E0B,#FBBF24)';st.style.color='#F59E0B';st.textContent='DÍA OCUPADO';}
+    else if(pct>0){bar.style.background='linear-gradient(90deg,#00F2FE,#4FACFE)';st.style.color='#00F2FE';st.textContent='EN CONSULTA';}
+    else{bar.style.background='linear-gradient(90deg,#00F2FE,#4FACFE)';st.style.color='rgba(255,255,255,.3)';st.textContent='SIN INICIAR';}
+    bar.style.width=pct+'%';
+    af.textContent=vetHoy+'/'+VET_MAX+' atendidas';
+  }
+  var mc=document.getElementById('v-mascotas'); if(!mc) return;
+  mc.innerHTML=mascotas.map(function(m,mi){
+    var venc=m.dias<0;
+    var prox=m.dias>=0&&m.dias<=2;
+    var bc=venc?'rgba(239,68,68,.1)':prox?'rgba(245,158,11,.1)':'rgba(74,222,128,.1)';
+    var tc=venc?'#EF4444':prox?'#F59E0B':'#4ADE80';
+    var lbl=venc?'VENCIDO hace '+Math.abs(m.dias)+'d':prox?(m.dias===0?'HOY':m.dias+'d restantes'):'En '+m.dias+' días';
+    return '<div class="member">'
+      +'<div style="display:flex;align-items:center;gap:10px;">'
+      +'<div style="width:34px;height:34px;background:'+(venc?'rgba(239,68,68,.1)':'rgba(0,242,254,.08)')+';border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;">'+m.tipo.charAt(0)+m.tipo.charAt(1)+'</div>'
+      +'<div><div style="font-size:12px;font-weight:700;color:#fff;">'+m.nom+' <span style="font-weight:400;color:rgba(255,255,255,.6);">· '+m.dueno+'</span></div>'
+      +'<div style="font-size:10px;color:rgba(255,255,255,.65);">'+m.servicio+'</div></div>'
+      +'</div>'
+      +'<div style="display:flex;align-items:center;gap:8px;">'
+      +'<span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:50px;background:'+bc+';color:'+tc+';">'+lbl+'</span>'
+      +(venc||prox?'<button class="dbtn-sm" onclick="vetRecordar('+mi+')" style="background:rgba(0,242,254,.08);border:1px solid rgba(0,242,254,.2);color:#00F2FE;">Recordar</button>':'')
+      +'</div></div>';
+  }).join('');
+}
+function vetRecordar(i){
+  var m=mascotas[i];
+  alert('📲 Recordatorio enviado a '+m.dueno+':\nTu mascota '+m.nom+' tiene pendiente: '+m.servicio+(m.dias<0?' (VENCIDO hace '+Math.abs(m.dias)+' días)':m.dias===0?' (HOY)':' (en '+m.dias+' días)'));
+}
+
 var miembros=[
   {nom:'Carlos Ruiz',plan:'Premium Anual',dias:79},
   {nom:'Valentina López',plan:'Mensual',dias:-2},
@@ -837,7 +1059,7 @@ var miembros=[
   {nom:'Sofía Castillo',plan:'Mensual',dias:-5},
   {nom:'Andrés Morales',plan:'Semestral',dias:115}
 ];
- 
+
 function renderGym(){
   var pct=Math.round(gymAforo/GYM_MAX*100);
   var bar=document.getElementById('g-bar');
@@ -860,7 +1082,7 @@ function renderGym(){
     return '<div class="member">'
       +'<div style="display:flex;align-items:center;gap:10px;">'
       +'<div style="width:32px;height:32px;background:'+(venc?'rgba(239,68,68,.1)':'rgba(0,242,254,.08)')+';border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:'+(venc?'#EF4444':'#00F2FE')+';">'+m.nom.charAt(0)+'</div>'
-      +'<div><div style="font-size:12px;font-weight:700;color:#fff;">'+m.nom+'</div><div style="font-size:10px;color:rgba(255,255,255,.3);">'+m.plan+'</div></div>'
+      +'<div><div style="font-size:12px;font-weight:700;color:#fff;">'+m.nom+'</div><div style="font-size:10px;color:rgba(255,255,255,.6);">'+m.plan+'</div></div>'
       +'</div>'
       +'<div style="display:flex;align-items:center;gap:8px;">'
       +'<span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:50px;background:'+bc+';color:'+tc+';">'+lbl+'</span>'
@@ -868,13 +1090,13 @@ function renderGym(){
       +'</div></div>';
   }).join('');
 }
- 
+
 function setAforo(d){ gymAforo=Math.max(0,Math.min(GYM_MAX,gymAforo+d)); renderGym(); }
 function renovarMiembro(i){ miembros[i].dias=30; renderGym(); }
 function renovarTodos(){ miembros.forEach(function(m){ if(m.dias<0) m.dias=30; }); renderGym(); }
- 
+
 renderGym();
- 
+
 // ── THREE.JS ──
 (function(){
   var cv=document.getElementById('cv3d');

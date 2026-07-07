@@ -109,7 +109,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   opacity: 0.95;
   filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.35));
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .human-ai-container {
     height: 220px;
     margin-top: 20px;
@@ -121,6 +121,28 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
     height: 100%;
     object-position: center;
   }
+}
+.pyme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  background: rgba(212, 175, 55, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 24px;
+  padding: 60px;
+}
+.adicional-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 30px rgba(9, 10, 15, 0.03);
+}
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* Terminal */
@@ -187,14 +209,21 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
 /* Grid helpers */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-@media(max-width:900px){
+@media(max-width:1024px){
   .grid2{grid-template-columns:1fr;}
   .hero-h{font-size:36px!important;}
-  .pyme-grid{grid-template-columns:1fr!important;}
+  .pyme-grid{grid-template-columns:1fr!important;padding:32px 20px!important;gap:32px!important;max-width:640px!important;margin:0 auto!important;}
+  .svc-card{max-width:480px!important;margin-left:auto!important;margin-right:auto!important;width:100%!important;}
+  .adicional-card{max-width:480px!important;margin-left:auto!important;margin-right:auto!important;width:100%!important;}
+  .hero-label{max-width:280px!important;margin-left:auto!important;margin-right:auto!important;}
 }
 @media(max-width:640px){
   .grid3{grid-template-columns:1fr 1fr;}
   .salon-form-row{grid-template-columns:1fr 1fr!important;}
+  .pyme-grid{padding:24px 16px!important;gap:20px!important;}
+  .adicional-card{padding:20px 16px!important;}
+  .hero-label .hl-line{display:none;}
+  .hero-label{justify-content:center;}
 }
 
 /* Scrollbar */
@@ -505,14 +534,14 @@ h1, h2, h3, h4 {
       <div style="position:relative;">
         <div style="display:flex;flex-direction:column;gap:14px;">
           <!-- Label superior -->
-          <div style="display:flex;align-items:center;gap:10px;">
-            <div style="height:1px;flex:1;background:linear-gradient(to right,rgba(0,242,254,.25),transparent);"></div>
+          <div class="hero-label">
+            <div class="hl-line" style="height:1px;flex:1;background:linear-gradient(to right,rgba(0,242,254,.25),transparent);"></div>
             <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,242,254,.65);">// transformación</span>
-            <div style="height:1px;flex:1;background:linear-gradient(to left,rgba(0,242,254,.25),transparent);"></div>
+            <div class="hl-line" style="height:1px;flex:1;background:linear-gradient(to left,rgba(0,242,254,.25),transparent);"></div>
           </div>
 
-          <!-- DOS CARDS LADO A LADO con tilt 3D -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <!-- DOS CARDS LADO A LADO con class grid2 responsiva -->
+          <div class="grid2" style="gap:12px;">
             <!-- CARD: SIN SISTEMA -->
             <div class="svc-card" data-tilt style="padding:28px 24px;">
               <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(255,255,255,.5);margin-bottom:22px;letter-spacing:.1em;">SIN_DIGITALIZAR</div>
@@ -642,7 +671,7 @@ h1, h2, h3, h4 {
 <!-- ══════════ PYMES BLOCK (Dark Section 3 - Original Style) ══════════ -->
 <section class="sec-dark" style="padding:120px 24px;position:relative;z-index:10;">
   <div style="max-width:1280px;margin:0 auto;" class="fu">
-    <div class="pyme-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;background:rgba(212,175,55,.04);border:1px solid rgba(212,175,55,.1);border-radius:24px;padding:60px;">
+    <div class="pyme-grid">
       <div>
         <div class="slabel" style="color:#D4AF37;">Para quién es esto</div>
         <h2 style="font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:18px;"><span class="gp">Si tienes un local</span><br><span class="gg">y clientes reales...</span></h2>
@@ -879,15 +908,15 @@ h1, h2, h3, h4 {
       </div>
     </div>
     
-    <!-- Adicionales footer note -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:24px 28px;box-shadow: 0 10px 30px rgba(9, 10, 15, 0.03);">
+    <!-- Adicionales footer note con class grid2 responsiva -->
+    <div class="grid2" style="gap:16px;">
+      <div class="adicional-card">
         <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D4AF37;margin-bottom:10px;">Adicional disponible en todos los planes</div>
         <div style="font-size:14px;font-weight:700;color:#D4AF37;margin-bottom:6px;">Infraestructura Física &amp; Letreros Conectados</div>
         <div style="font-size:12px;color:#475569;line-height:1.6;">Rótulos luminosos LED, letras corpóreas 3D y exhibidores comerciales a medida para tu local. Opcionalmente los equipamos con códigos interactivos (QR) o sensores enlazados a tu software para automatizar registros, citas y promociones al instante.</div>
         <div style="font-size:11px;color:#D4AF37;margin-top:10px;font-style:italic;font-weight:700;">Cotización aparte según proyecto</div>
       </div>
-      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:24px 28px;box-shadow: 0 10px 30px rgba(9, 10, 15, 0.03);">
+      <div class="adicional-card">
         <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0078FF;margin-bottom:10px;">Adicional disponible en todos los planes</div>
         <div style="font-size:14px;font-weight:700;color:#0078FF;margin-bottom:6px;">Web Promocional de tu Negocio</div>
         <div style="font-size:12px;color:#475569;line-height:1.6;">Página web moderna con tus servicios, fotos y formulario de contacto. Tus clientes te encuentran en línea.</div>
@@ -905,7 +934,7 @@ h1, h2, h3, h4 {
       <h2 style="font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1.1;">Páginas que <span class="gc">diseñamos.</span></h2>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="grid2" style="gap:20px;">
       <!-- SOLÈNE -->
       <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(184,150,90,.2);transition:all .35s;cursor:pointer;"
            onclick="window.open('solene-studio.html', '_blank')"

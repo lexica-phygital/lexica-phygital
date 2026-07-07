@@ -109,21 +109,7 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   opacity: 0.95;
   filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.35));
 }
-@media (max-width: 1200px) {
-  .human-ai-container {
-    height: 280px!important;
-    margin-top: 20px!important;
-  }
-  .human-ai-img {
-    position: relative!important;
-    right: 0!important;
-    top: 0!important;
-    width: 100%!important;
-    height: 100%!important;
-    object-position: center!important;
-    object-fit: contain!important;
-  }
-}
+
 .pyme-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -217,19 +203,30 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
 /* Grid helpers */
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-@media(max-width:1200px){
+@media(max-width:768px){
+  section{padding:60px 24px!important;}
+  #inicio{padding:100px 24px 60px!important;}
   .grid2{grid-template-columns:1fr;}
   .hero-h{font-size:36px!important;}
-  .pyme-grid{grid-template-columns:1fr!important;padding:32px 20px!important;gap:32px!important;max-width:640px!important;margin:0 auto!important;}
+  .pyme-grid{grid-template-columns:1fr!important;padding:32px 20px!important;gap:32px!important;max-width:540px!important;margin:0 auto!important;}
   .svc-card{max-width:480px!important;margin-left:auto!important;margin-right:auto!important;width:100%!important;}
   .adicional-card{max-width:480px!important;margin-left:auto!important;margin-right:auto!important;width:100%!important;}
   .hero-label{max-width:280px!important;margin-left:auto!important;margin-right:auto!important;}
   .contact-card{padding:32px 20px!important;}
-}
-@media(max-width:768px){
-  section{padding:60px 24px!important;}
-  #inicio{padding:100px 24px 60px!important;}
-  .pyme-grid{max-width:540px!important;}
+  /* Hands image centered on mobile/tablet */
+  .human-ai-container {
+    height: 280px!important;
+    margin-top: 20px!important;
+  }
+  .human-ai-img {
+    position: relative!important;
+    right: 0!important;
+    top: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+    object-position: center!important;
+    object-fit: contain!important;
+  }
 }
 @media(max-width:640px){
   section{padding:50px 28px!important;}

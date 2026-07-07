@@ -111,7 +111,17 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
 }
 @media (max-width: 1024px) {
   .human-ai-container {
-    display: none !important;
+    height: 280px;
+    margin-top: 20px;
+  }
+  .human-ai-img {
+    position: absolute;
+    right: -24px;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    object-position: right center;
+    object-fit: contain;
   }
 }
 .pyme-grid {
@@ -231,6 +241,19 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
   .hero-label .hl-line{display:none;}
   .hero-label{justify-content:center;}
   .contact-card{padding:24px 16px!important;max-width:420px!important;}
+  .human-ai-container {
+    height: 220px!important;
+    margin-top: 15px!important;
+  }
+  .human-ai-img {
+    position: absolute!important;
+    right: -24px!important;
+    top: 0!important;
+    width: 115%!important;
+    height: 100%!important;
+    object-position: right center!important;
+    object-fit: contain!important;
+  }
 }
 
 /* Scrollbar */

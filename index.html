@@ -144,6 +144,12 @@ body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradi
   align-items: center;
   gap: 10px;
 }
+.contact-card {
+  border-radius: 28px;
+  padding: 60px;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 /* Terminal */
 .terminal{background:#020408;border:1px solid rgba(0,242,254,.15);border-radius:16px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;}
@@ -216,6 +222,7 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
   .svc-card{max-width:480px!important;margin-left:auto!important;margin-right:auto!important;width:100%!important;}
   .adicional-card{max-width:480px!important;margin-left:auto!important;margin-right:auto!important;width:100%!important;}
   .hero-label{max-width:280px!important;margin-left:auto!important;margin-right:auto!important;}
+  .contact-card{padding:32px 20px!important;}
 }
 @media(max-width:640px){
   .grid3{grid-template-columns:1fr 1fr;}
@@ -224,6 +231,7 @@ select.finput option{background:#0B0F1A;color:#F3F4F6;}
   .adicional-card{padding:20px 16px!important;}
   .hero-label .hl-line{display:none;}
   .hero-label{justify-content:center;}
+  .contact-card{padding:24px 16px!important;}
 }
 
 /* Scrollbar */
@@ -934,7 +942,7 @@ h1, h2, h3, h4 {
       <h2 style="font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1.1;">Páginas que <span class="gc">diseñamos.</span></h2>
     </div>
 
-    <div class="grid2" style="gap:20px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
       <!-- SOLÈNE -->
       <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(184,150,90,.2);transition:all .35s;cursor:pointer;"
            onclick="window.open('solene-studio.html', '_blank')"
@@ -998,7 +1006,7 @@ h1, h2, h3, h4 {
 <section id="contacto" class="sec-light" style="padding:120px 24px;position:relative;z-index:10;">
   <div class="cgrid" style="opacity:0.6;"></div>
   <div style="max-width:800px;margin:0 auto;position:relative;z-index:11;" class="fu">
-    <div class="glass" style="border-radius:28px;padding:60px;">
+    <div class="glass contact-card">
       <div style="text-align:center;margin-bottom:44px;">
         <div class="slabel" style="color:#0078FF;justify-content:center;">Paso 1 de 4</div>
         <h2 class="title-md" style="margin-bottom:14px;"><span class="gp">Iniciar Conexión</span><br><span class="gc">Léxica Phygital</span></h2>
